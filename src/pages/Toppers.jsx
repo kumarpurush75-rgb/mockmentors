@@ -38,9 +38,9 @@ const Toppers = () => {
   ];
 
   const strategyData = [
-    { name: 'Kumari Deeksha', rank: 2, img: '/deeksha_portrait_1779098675776.jpeg', notesUrl: 'https://drive.google.com/file/d/1YkRNSCITsYTajbLU9VS66zzA--oRDrlz/view?usp=drive_link' },
-    { name: 'Himanshi Tulsiani', rank: 15, img: '/himanshi_portrait_1779098692272.jpeg', notesUrl: 'https://drive.google.com/file/d/1XN91bhHP2XuZeOSsKTFX9uGjCNwgCy6P/view?usp=drive_link' },
-    { name: 'Saurabh Sharma', rank: 31, img: '/saurabh_portrait_1779098656404.jpeg', notesUrl: 'https://drive.google.com/file/d/1Uyn-Po2biy-ehlBHqakZB1PVdVAOlYaO/view?usp=drive_link' },
+    { name: 'Kumari Deeksha', rank: 2, img: '/deeksha_portrait_1779098675776.jpeg', notesUrl: 'https://drive.google.com/file/d/1YkRNSCITsYTajbLU9VS66zzA--oRDrlz/view?usp=drive_link', isDescriptive: true },
+    { name: 'Himanshi Tulsiani', rank: 15, img: '/himanshi_portrait_1779098692272.jpeg', notesUrl: 'https://drive.google.com/file/d/1XN91bhHP2XuZeOSsKTFX9uGjCNwgCy6P/view?usp=drive_link', isDescriptive: true },
+    { name: 'Saurabh Sharma', rank: 31, img: '/saurabh_portrait_1779098656404.jpeg', notesUrl: 'https://drive.google.com/file/d/1Uyn-Po2biy-ehlBHqakZB1PVdVAOlYaO/view?usp=drive_link', isDescriptive: true },
     { name: 'Hari Jagan', rank: 53, img: '/hari_jegan_portrait_1779098790015.jpeg', notesUrl: 'https://drive.google.com/drive/folders/14U19auYxO3eNdP222zaHKYudBOeW41R4?usp=drive_link' },
   ];
 
@@ -112,21 +112,19 @@ const Toppers = () => {
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-white p-1.5 rounded-full border border-gray-200 shadow-sm">
-            <button
-              onClick={() => setActiveTab('performance')}
-              className={`px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 ${activeTab === 'performance' ? 'bg-[#1c4897] text-white shadow-md' : 'text-gray-500 hover:text-[#1c4897] hover:bg-blue-50'}`}
-            >
-              Performance & Results
-            </button>
-            <button
-              onClick={() => setActiveTab('strategy')}
-              className={`px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 ${activeTab === 'strategy' ? 'bg-[#1c4897] text-white shadow-md' : 'text-gray-500 hover:text-[#1c4897] hover:bg-blue-50'}`}
-            >
-              Strategy & Descriptive Notes
-            </button>
-          </div>
+        <div className="flex justify-center flex-wrap gap-4 mb-12">
+          <button
+            onClick={() => setActiveTab('performance')}
+            className={`px-6 sm:px-8 py-3 rounded-full text-sm sm:text-base font-bold transition-all duration-300 border-2 ${activeTab === 'performance' ? 'bg-[#1c4897] text-white border-[#1c4897] shadow-lg transform scale-105' : 'bg-white text-[#1c4897] border-[#1c4897] hover:bg-blue-50 shadow-sm'}`}
+          >
+            Performance & Results
+          </button>
+          <button
+            onClick={() => setActiveTab('strategy')}
+            className={`px-6 sm:px-8 py-3 rounded-full text-sm sm:text-base font-bold transition-all duration-300 border-2 ${activeTab === 'strategy' ? 'bg-[#1c4897] text-white border-[#1c4897] shadow-lg transform scale-105' : 'bg-white text-[#1c4897] border-[#1c4897] hover:bg-blue-50 shadow-sm'}`}
+          >
+            Strategy & Descriptive Notes
+          </button>
         </div>
 
         {/* Content based on Active Tab */}
@@ -144,7 +142,7 @@ const Toppers = () => {
             {/* Footer Text */}
             <div className="text-center mt-20">
               <p className="text-xl md:text-3xl font-medium text-gray-900 leading-relaxed">
-                Out of 26 Students, <span className="font-bold">13 Successfully Cleared</span> RBI Grade B under<br/>
+                <span className="font-bold">13 Students Successfully Cleared</span> RBI Grade B under<br/>
                 <span className="font-black italic text-2xl md:text-4xl">MockMentor</span> Guidance
               </p>
             </div>
@@ -153,7 +151,7 @@ const Toppers = () => {
 
         {activeTab === 'strategy' && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-center text-gray-800 mb-8">Download Aspirants Strategy & Notes</h3>
+            <h3 className="text-2xl font-bold text-center text-gray-800 mb-8">Download Toppers Strategy & Notes</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {strategyData.map((topper, idx) => (
                 <div key={idx} className="bg-white rounded-xl shadow-md border border-gray-100 p-6 flex flex-col sm:flex-row items-center gap-6 hover:shadow-lg transition-shadow border-l-4 border-l-[#1c4897]">
@@ -165,9 +163,11 @@ const Toppers = () => {
                   </div>
                   <div className="flex flex-col items-center sm:items-start w-full text-center sm:text-left mt-2 sm:mt-0">
                     <h4 className="font-bold text-xl text-gray-900 mb-1">{topper.name}</h4>
-                    <p className="text-xs text-gray-500 font-medium mb-4">Detailed Strategy & Preparation Notes</p>
+                    <p className="text-xs text-gray-500 font-medium mb-4">
+                      {topper.isDescriptive ? 'Evaluated Descriptive Answers' : 'Detailed Strategy & Preparation Notes'}
+                    </p>
                     <a href={topper.notesUrl} target="_blank" rel="noopener noreferrer" className="mt-auto w-full sm:w-auto bg-[#e6f4f1] text-[#0d7d6b] hover:bg-[#0d7d6b] hover:text-white border border-[#b2e2d9] hover:border-[#0d7d6b] px-4 py-2 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2 group">
-                      <Download className="w-4 h-4 text-[#0d7d6b] group-hover:text-white transition-colors" /> View Strategy Notes
+                      <Download className="w-4 h-4 text-[#0d7d6b] group-hover:text-white transition-colors" /> {topper.isDescriptive ? 'View Descriptive Answers' : 'View Strategy Notes'}
                     </a>
                   </div>
                 </div>

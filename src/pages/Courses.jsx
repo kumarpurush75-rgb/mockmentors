@@ -14,7 +14,8 @@ const courses = [
     reviews: "840",
     features: ["Line-by-line Evaluation", "Model Answers", "Live Strategy Sessions"],
     tag: "Best Seller",
-    path: "/courses/descriptive-writing"
+    path: "/courses/descriptive-writing",
+    url: "https://www.mockmentor.in/learn/Descriptive-writing"
   },
   {
     id: "elite-course",
@@ -26,7 +27,8 @@ const courses = [
     reviews: "1.2k",
     features: ["Video Lectures", "Detailed PDF Notes", "Full-length Mocks"],
     tag: "Most Popular",
-    path: "/courses/elite-course"
+    path: "/courses/elite-course",
+    url: "https://www.mockmentor.in/learn/RBI-Grade-B-2026-Full-Package"
   },
   {
     id: "super-elite",
@@ -38,7 +40,8 @@ const courses = [
     reviews: "450",
     features: ["Everything in Elite", "Descriptive Evaluation", "1-on-1 Mentorship"],
     tag: "Premium",
-    path: "/courses/super-elite"
+    path: "/courses/super-elite",
+    url: "https://www.mockmentor.in/learn/RBI-Grade-B-2026-Super-elite"
   }
 ];
 
@@ -114,10 +117,10 @@ const Courses = () => {
                   >
                     View Details
                   </button>
-                  <button className="w-full flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 text-white py-3 rounded-xl font-bold shadow-md transition-colors">
+                  <a href={course.url} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 text-white py-3 rounded-xl font-bold shadow-md transition-colors">
                     Purchase Now
                     <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </a>
                 </div>
               </div>
             </motion.div>

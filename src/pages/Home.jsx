@@ -17,7 +17,8 @@ const Home = () => {
       price: "7,500",
       oldPrice: "10,000",
       discount: "25% OFF",
-      img: "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&w=800&q=80",
+      img: "/super%20elite.png",
+      url: "https://www.mockmentor.in/learn/RBI-Grade-B-2026-Super-elite",
     },
     {
       title: "RBI Grade B 2026 Elite Course",
@@ -25,7 +26,8 @@ const Home = () => {
       price: "3,500",
       oldPrice: "5,000",
       discount: "30% OFF",
-      img: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80",
+      img: "/elite.jpeg",
+      url: "https://www.mockmentor.in/learn/RBI-Grade-B-2026-Full-Package",
     },
     {
       title: "RBI Grade B Descriptive Writing programme",
@@ -33,7 +35,8 @@ const Home = () => {
       price: "5,000",
       oldPrice: "6,000",
       discount: "17% OFF",
-      img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80",
+      img: "/descriptive.jpeg",
+      url: "https://www.mockmentor.in/learn/Descriptive-writing",
     },
     {
       title: "Fortnight GA & Current Affairs MCQ Package",
@@ -41,7 +44,8 @@ const Home = () => {
       price: "1,999",
       oldPrice: "2,500",
       discount: "20% OFF",
-      img: "https://images.unsplash.com/photo-1611095564985-78096350e932?auto=format&fit=crop&w=800&q=80",
+      img: "/fortnight.jpeg",
+      url: "https://www.mockmentor.in/learn/Fortnight-MCQs",
     },
   ];
 
@@ -99,19 +103,6 @@ const Home = () => {
           Explore Our Courses
         </button>
       </section>
-
-      {/* WhatsApp Floating Button */}
-      <div className="fixed bottom-6 right-6 z-[100]">
-        <button className="group flex items-center gap-3 bg-white border border-gray-200 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-full p-2 pr-5 hover:border-green-200 hover:bg-green-50 transition-all duration-300">
-          <div className="bg-[#25D366] text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-            <MessageCircle className="w-6 h-6" />
-          </div>
-          <div className="text-left hidden md:block">
-            <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Chat with us</p>
-            <p className="text-sm font-bold text-gray-800">Have questions? Reach out to us directly!</p>
-          </div>
-        </button>
-      </div>
 
       {/* 2. DIAGRAM SECTION */}
       <section className="py-20 text-center px-4">
@@ -226,9 +217,9 @@ const Home = () => {
                     </div>
                     
                     <div className="flex items-center gap-3">
-                      <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded transition-colors text-sm">
+                      <a href={course.url} target="_blank" rel="noopener noreferrer" className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded transition-colors text-sm text-center">
                         BUY NOW
-                      </button>
+                      </a>
                       <Link to={`/courses/${idx}`} className="text-red-500 hover:text-red-600 font-bold text-sm underline underline-offset-2">
                         details
                       </Link>
@@ -240,8 +231,11 @@ const Home = () => {
 
             {/* Demo Course Card */}
             <div className="bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden flex flex-col">
-              <div className="h-48 bg-white flex items-center justify-center border-b border-gray-100">
-                <img src="/logo.jpeg" alt="MockMentor Logo" className="h-12 object-contain" />
+              <div className="h-48 bg-gray-100 relative">
+                <img src="/demo.jpeg" alt="Demo Course" className="w-full h-full object-cover" />
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 text-[10px] text-emerald-600 font-bold tracking-widest uppercase bg-white/80 px-2 rounded">
+                  Mock Mentor
+                </div>
               </div>
               <div className="p-5 flex flex-col flex-grow">
                 <h3 className="font-bold text-gray-800 text-lg mb-2">Demo Course</h3>
@@ -250,9 +244,9 @@ const Home = () => {
                   365 Days Validity
                 </div>
                 <div className="mt-auto pt-4">
-                  <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded transition-colors text-sm">
+                  <a href="https://www.mockmentor.in/learn/Demo-Course" target="_blank" rel="noopener noreferrer" className="block w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded transition-colors text-sm text-center">
                     ENROLL FOR FREE
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -268,82 +262,57 @@ const Home = () => {
       </section>
 
       {/* 4B. COURSE COMPARISON */}
-      <section className="py-20 px-4 bg-gray-50 border-t border-gray-200">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">Compare Our Top Programs</h2>
+      <section className="py-20 px-4 bg-gray-50 border-t border-gray-200 relative overflow-hidden">
+        {/* Premium Background Elements */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-100 rounded-full blur-[100px] opacity-50 pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-50 rounded-full blur-[100px] opacity-50 pointer-events-none"></div>
+        
+        <div className="max-w-6xl mx-auto relative z-10">
+          <h2 className="text-3xl md:text-5xl font-black text-center text-gray-900 mb-16 tracking-tight">Compare Our Flagship Programs</h2>
           
-          <div className="flex flex-col lg:flex-row gap-6 max-w-5xl mx-auto items-center lg:items-stretch">
+          <div className="flex flex-col lg:flex-row gap-10 max-w-5xl mx-auto items-center lg:items-stretch">
             
-            {/* Super Elite Course (Dark Card) */}
-            <div className="bg-[#1a1c29] text-white rounded-3xl p-8 lg:p-10 flex-1 relative overflow-hidden shadow-xl w-full max-w-lg">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
-              
-              <div className="bg-[#2a2d3d] text-xs font-bold px-3 py-1 rounded inline-block mb-6 tracking-wide text-gray-300">
-                PREMIUM PACKAGE
+            {/* Elite Course Image Card */}
+            <div className="flex-1 flex flex-col group w-full max-w-lg">
+              <div className="rounded-2xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-gray-200 bg-white transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.15)] relative flex-grow">
+                <img src="/elite_compare.png" alt="Elite Course Comparison" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent pointer-events-none"></div>
               </div>
-              
-              <h2 className="text-3xl font-bold mb-4">Super Elite Course</h2>
-              <p className="text-gray-400 mb-8 font-medium">1-on-1 interview mentorship.</p>
-              
-              <div className="grid grid-cols-2 gap-y-4 gap-x-2 mb-12">
-                <div className="flex items-center gap-2 text-sm text-gray-300 font-medium">
-                  <CheckCircle2 className="w-5 h-5 text-blue-400" />
-                  400+ Hrs Video
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-300 font-medium">
-                  <CheckCircle2 className="w-5 h-5 text-blue-400" />
-                  Descriptive Checking
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-300 font-medium">
-                  <CheckCircle2 className="w-5 h-5 text-blue-400" />
-                  Interview Guidance
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-300 font-medium">
-                  <CheckCircle2 className="w-5 h-5 text-blue-400" />
-                  Printed Materials
-                </div>
-              </div>
-              
-              <div className="mt-auto flex justify-between items-end">
-                <div>
-                  <p className="text-gray-500 line-through text-sm mb-1">₹24,999</p>
-                  <p className="text-3xl font-bold">₹14,999</p>
-                </div>
-                <button className="bg-white text-black font-bold py-3 px-6 rounded-lg hover:bg-gray-200 transition-colors flex items-center gap-2">
-                  Enroll Now <ArrowRight className="w-4 h-4" />
-                </button>
+              <div className="mt-6 flex justify-center">
+                <a href="https://www.mockmentor.in/learn/RBI-Grade-B-2026-Full-Package" target="_blank" rel="noopener noreferrer" className="relative overflow-hidden w-full max-w-sm rounded-xl p-[1px] group shadow-md hover:shadow-lg transition-shadow">
+                  <span className="absolute inset-0 bg-gradient-to-r from-blue-400 via-blue-600 to-indigo-600 opacity-70 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  <div className="relative bg-white group-hover:bg-transparent transition-colors duration-300 rounded-xl px-8 py-4 flex items-center justify-center gap-2">
+                    <span className="font-extrabold text-blue-900 group-hover:text-white transition-colors duration-300 text-lg">ENROLL NOW - ELITE</span>
+                    <ArrowRight className="w-5 h-5 text-blue-900 group-hover:text-white transition-colors duration-300" />
+                  </div>
+                </a>
               </div>
             </div>
-            
-            {/* Elite Course (Light Card) */}
-            <div className="bg-white text-gray-900 rounded-3xl p-8 lg:p-10 flex-1 shadow-lg border border-gray-100 flex flex-col w-full max-w-lg">
-              <div className="bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded inline-block mb-6 tracking-wide self-start">
-                CORE FOUNDATION
-              </div>
-              
-              <h2 className="text-2xl font-bold mb-2">Elite Course</h2>
-              <p className="text-gray-500 mb-8 text-sm font-medium">Comprehensive coverage of Phase I and Phase II</p>
-              
-              <div className="space-y-4 mb-12">
-                <div className="flex items-start gap-3 text-sm text-gray-700 font-medium">
-                  <PlayCircle className="w-5 h-5 text-blue-500 shrink-0" />
-                  Complete Phase 1 & 2 Video Course
-                </div>
-                <div className="flex items-start gap-3 text-sm text-gray-700 font-medium">
-                  <FileText className="w-5 h-5 text-blue-500 shrink-0" />
-                  Detailed PDF Notes
-                </div>
-                <div className="flex items-start gap-3 text-sm text-gray-700 font-medium">
-                  <Target className="w-5 h-5 text-blue-500 shrink-0" />
-                  25+ Full-Length Mock Tests
+
+            {/* Super Elite Course Image Card */}
+            <div className="flex-1 flex flex-col group w-full max-w-lg">
+              <div className="rounded-2xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-amber-200 bg-white transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_20px_50px_rgba(251,_191,_36,_0.15)] relative flex-grow">
+                <img src="/super_elite_compare.png" alt="Super Elite Course Comparison" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent pointer-events-none"></div>
+                
+                {/* Premium Badge */}
+                <div className="absolute -top-1 -right-1">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-amber-400 blur-[8px] opacity-80 rounded-full"></div>
+                    <div className="bg-gradient-to-br from-amber-300 to-yellow-600 text-white font-black text-[10px] uppercase tracking-widest py-1.5 px-4 rounded-bl-xl shadow-lg relative border border-yellow-300/50">
+                      Most Recommended
+                    </div>
+                  </div>
                 </div>
               </div>
-              
-              <div className="mt-auto flex justify-between items-center border-t border-gray-100 pt-6">
-                <p className="text-2xl font-bold">₹7,999</p>
-                <button className="text-blue-600 font-bold hover:text-blue-800 transition-colors flex items-center gap-2 text-sm">
-                  View Details <ArrowRight className="w-4 h-4" />
-                </button>
+              <div className="mt-6 flex justify-center">
+                <a href="https://www.mockmentor.in/learn/RBI-Grade-B-2026-Super-elite" target="_blank" rel="noopener noreferrer" className="relative overflow-hidden w-full max-w-sm rounded-xl p-[1px] group shadow-md hover:shadow-lg transition-shadow">
+                  <span className="absolute inset-0 bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-500 opacity-100 transition-opacity duration-300"></span>
+                  <div className="relative bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-400 hover:to-amber-500 transition-colors duration-300 rounded-xl px-8 py-4 flex items-center justify-center gap-2 shadow-inner border border-yellow-400/50">
+                    <span className="font-extrabold text-white text-lg drop-shadow-sm">ENROLL NOW - SUPER ELITE</span>
+                    <ArrowRight className="w-5 h-5 text-white drop-shadow-sm" />
+                  </div>
+                </a>
               </div>
             </div>
           </div>
@@ -411,9 +380,9 @@ const Home = () => {
               One stop solution for Regulatory, banking and insurance exams.
             </li>
           </ul>
-          <button className="bg-[#0088cc] hover:bg-[#0077b3] text-white px-8 py-3 rounded-md font-bold transition-colors inline-flex items-center gap-2 shadow-md">
+          <a href="https://t.me/Mockmentor" target="_blank" rel="noopener noreferrer" className="bg-[#0088cc] hover:bg-[#0077b3] text-white px-8 py-3 rounded-md font-bold transition-colors inline-flex items-center gap-2 shadow-md">
             JOIN US ON TELEGRAM
-          </button>
+          </a>
         </div>
       </section>
 
