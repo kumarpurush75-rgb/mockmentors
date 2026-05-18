@@ -8,12 +8,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="col-span-1 md:col-span-2">
           <div className="flex items-center gap-2 mb-4">
-            <div className="bg-brand-600 p-1.5 rounded-lg">
-              <BookOpen className="h-5 w-5 text-white" />
-            </div>
-            <span className="font-bold text-xl tracking-tight text-white">
-              Mock<span className="text-brand-500">Mentor</span>
-            </span>
+            <img src="/logo.jpeg" alt="MockMentor Logo" className="h-10 object-contain" />
           </div>
           <p className="text-sm text-slate-400 max-w-sm mb-6 leading-relaxed">
             Your ultimate companion for RBI Grade B preparation. Get access to top-tier courses, descriptive writing evaluation, and expert mentorship.

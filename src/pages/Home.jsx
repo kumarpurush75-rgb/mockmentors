@@ -1,447 +1,480 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { PlayCircle, ArrowRight, CheckCircle2, Star, BookOpen, Award, Download, FileText, ChevronRight, PenTool, Zap, X } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { PlayCircle, ChevronDown, CheckCircle, MessageCircle, CheckCircle2, FileText, Target, ArrowRight, X } from 'lucide-react';
 
 const Home = () => {
-  const navigate = useNavigate();
-  const [selectedTopper, setSelectedTopper] = useState(null);
+  const [openFaq, setOpenFaq] = useState(null);
+  const [selectedFeedback, setSelectedFeedback] = useState(null);
 
-  const toppersList = [
-    { 
-      name: "Priya Sharma", 
-      rank: "AIR 5", 
-      text: "The personalized mentorship kept me focused when I was completely lost in Phase 2 prep.",
-      fullStrategy: "I started my preparation 8 months before the exam. My primary focus was on Descriptive Writing because I realized early on that objective scores can only take you so far. Mock Mentor's line-by-line evaluation was a game changer. I used their FM cheat sheet every morning for 15 minutes. For the interview, I attended 3 mock panels which completely removed my hesitation.",
-      img: "https://i.pravatar.cc/150?img=5" 
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const courses = [
+    {
+      title: "RBI Grade B 2026 Super-Elite Course",
+      validity: "Valid Till Dec 31, 2026",
+      price: "7,500",
+      oldPrice: "10,000",
+      discount: "25% OFF",
+      img: "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&w=800&q=80",
     },
-    { 
-      name: "Rahul Verma", 
-      rank: "AIR 12", 
-      text: "Their mock tests are notoriously difficult, but they make the actual RBI exam feel like a breeze.",
-      fullStrategy: "I was a working professional, so time was my biggest constraint. The Elite Course's crisp PDFs saved me hundreds of hours. I strictly solved Mock Mentor's mock tests on weekends. I was initially scoring around 40% but their detailed solutions helped me identify my weak spots in Quant. For ESI, I just stuck to their monthly current affairs compilations.",
-      img: "https://i.pravatar.cc/150?img=11" 
+    {
+      title: "RBI Grade B 2026 Elite Course",
+      validity: "Valid Till Dec 31, 2026",
+      price: "3,500",
+      oldPrice: "5,000",
+      discount: "30% OFF",
+      img: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80",
     },
-    { 
-      name: "Neha Gupta", 
-      rank: "AIR 21", 
-      text: "Line-by-line descriptive evaluation was the sole reason my score jumped by 20 marks.",
-      fullStrategy: "My objective scores were always good, but I struggled with structuring my answers in Phase 2. The mentors taught me the 'Introduction-Body-Conclusion-Way Forward' approach. I submitted 20+ answers for evaluation and the feedback was brutal but extremely necessary. I highly recommend the Super Elite course for anyone serious about clearing in their first attempt.",
-      img: "https://i.pravatar.cc/150?img=9" 
+    {
+      title: "RBI Grade B Descriptive Writing programme",
+      validity: "365 Days Validity",
+      price: "5,000",
+      oldPrice: "6,000",
+      discount: "17% OFF",
+      img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      title: "Fortnight GA & Current Affairs MCQ Package",
+      validity: "Valid Till Dec 31, 2026",
+      price: "1,999",
+      oldPrice: "2,500",
+      discount: "20% OFF",
+      img: "https://images.unsplash.com/photo-1611095564985-78096350e932?auto=format&fit=crop&w=800&q=80",
     },
   ];
 
+  const officers = [
+    {
+      name: "Kumari Deeksha",
+      rank: "Selected as RBI Grade B - Rank 2",
+      prog: "(RBI course + Interview Program)",
+      text: "Hello Team MockMentor, Discovering MockMentor has been one of the best decisions in my RBI preparation journey. Your fortnightly MCQs, magazines, Phase 2 objective MCQ package, and descriptive content were exceptionally accurate and highly relevant. The precise and well-curated content made my RBI preparation much easier.",
+      fullText: `2025 was my fourth attempt at the RBI examination, and by God’s grace, I secured AIR-2 this year. I started following Mock Mentor in 2024, and in 2025, I enrolled in their courses available at the time.\n\nOne of the biggest strengths of Mock Mentor was the quality of their content, the magazines were extremely well-curated, crisp, authentic and highly exam-focused. As a working aspirant with limited preparation time, the concise and relevant material helped me prepare comprehensively in a very efficient manner. The return on investment was truly exceptional.\n\nThe fortnightly MCQs played an important role in helping me revise consistently and stay aligned with the exam requirements. I particularly found the Phase 2 MCQs to be highly underrated, as they helped me build a holistic understanding of the syllabus. In fact, I scored 43 marks in Management, and Mock Mentor’s content played a significant role in that achievement.\n\nI also extensively used their descriptive preparation resources, which proved immensely helpful. In Finance, Management, and ESI descriptive papers, I scored 35+ marks. Overall, the content remained highly relevant, concise, and exam-oriented throughout my preparation journey. For any serious RBI aspirant, especially working professionals, Mock Mentor can be a very valuable companion in the preparation process.`,
+      img: "/deeksha_portrait_1779098675776.jpeg"
+    },
+    {
+      name: "Hari Jagan",
+      rank: "Selected as RBI Grade B - Rank 53 (Highest in Phase 2)",
+      prog: "(RBI course + Interview Program)",
+      text: "MockMentor played an important role in this journey. The exam-focused Telegram content, weekly revision capsules, high-quality Phase 2 MCQs, and Interview Guidance Programme helped me stay focused, revise effectively, and prepare with confidence. The personalized support and curated resources made a real difference in my preparation.",
+      fullText: `I am selected in the RBI Grade B 2025 examination, and Mockmentor played a crucial role in this journey.\n\nMy Detailed Feedback about Mockmentor course and telegram channel for RBI Grade B exam 2025 :\n\nProgramme I used from it : Phase 2 and Interview\n\nMockmentor Materials in Telegram channel :\nHow about you read only the most important points of everything relevant to RBI from none other than its original source. Thatz what this platform does. I found this very unique and unmatched.\n\nThey highlight everything which is important from exam point of view from its original source.\n\nI read only highlighted portion from their posts except newspaper. Business Standard I read everything to grasp what is being said with full context (helped me to Tackle corporate banking question in Interview)\n\nI read and took note of  Every post they shared which includes PIB, Business standard newspapers, CIRCULARS of RBI & SEBI , SCHEMES etc\n\nI've gained a lot of confidence through revision by their "Weekly revision capsules".\n\nItz MCQ for phase 2 was best in the market especially for CA. I didn't do any Descriptive practice from there.\n\nMockmentor Shared list of Reports important for Phase 2 : Filtered the clutter for me.\n\nMockmentor Interview Guidance Programme : Gold\n\nTheir Interview guidance programme was Top Notch. Despite me not giving any mock interview there, Their\n\nDetailed questionnaire about each aspect of my profile was a goldmine for me and the list of things to cover for Interview for RBI such as Departmental questions based on my selection, working and functions PDF highlights were really good.\n\nTo be frank, I would have never known importance of department related questions without Mockmentor.\n\nAlso I was highly benefited from their private interview telegram Channel from my fellow Mates\n\nMockmentor support : Their personalized support system played a crucial role. Individual queries were addressed promptly, helping resolve critical doubts during preparation.\n\nI also found that Mockmentor materials have strong spillover benefits, helping in preparation for other exams as well.\n\nI am immensely grateful to the Mockmentor Telegram channel and Rahul sir for helping me ace this exam.\n\nI am truly delighted and will always remain thankful.\n\nBy : Hari Jegan Prathap S`,
+      img: "/hari_jegan_portrait_1779098790015.jpeg"
+    },
+    {
+      name: "Atithi Kumar",
+      rank: "Selected as RBI Grade B - Rank 38 (First Attempt)",
+      prog: "(Interview Program)",
+      text: "RBI Grade B 2025 was my first attempt, and Team MockMentor played a very important role in making the entire journey smooth and well-guided. The Interview Guidance Programme gave me confidence, clarity, and the right direction throughout the preparation process.",
+      fullText: `2025 was my first attempt at the RBI examination, and I enrolled in the Interview Guidance Program by Mock Mentor. Initially, I was quite insecure and had very little clarity regarding what to prepare and what to study for the interview.\n\nHowever, with the continuous support and guidance of Team Mock Mentor, the entire process became much more structured and manageable. They provided significant help in preparing my biodata in a cohesive and effective manner, which gave me much-needed confidence. The team also guided me towards relevant certification courses that played an important role in strengthening my interview preparation.\n\nWith their mentorship and support, I was able to score 57 Mark's in the interview. I am truly grateful to Team Mock Mentor for being a valuable partner throughout my interview journey.`,
+      img: "/atithi_portrait_1779098738039.jpeg"
+    }
+  ];
+
+  const faqs = [
+    "What Mock Mentor offers?",
+    "Why only Mock Mentor?",
+    "What would be covered in quizzes?",
+    "What are the sources to be followed in order to excel in actual exam and the mock test?",
+    "What is the level of questions in the mock test?",
+    "What is the frequency of mock tests?"
+  ];
+
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50">
+    <div className="flex flex-col min-h-screen bg-white pt-16 md:pt-20">
       
       {/* 1. HERO SECTION */}
-      <section id="home" className="relative pt-24 pb-20 md:pt-32 md:pb-32 overflow-hidden bg-white scroll-mt-16">
-        <div className="absolute inset-0 bg-dot-pattern opacity-50 z-0 pointer-events-none"></div>
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-100 rounded-full blur-[100px] opacity-60 -translate-y-1/2 translate-x-1/3 z-0 pointer-events-none"></div>
+      <section className="bg-[#f2fff7] py-16 text-center px-4 relative">
+        <h1 className="text-4xl md:text-5xl font-bold text-emerald-400 mb-4 tracking-tight">
+          Welcome to Mock Mentor
+        </h1>
+        <p className="text-lg md:text-xl text-gray-600 mb-2 font-medium">
+          Where true aspirants meet true mentors
+        </p>
+        <p className="text-sm md:text-base text-gray-500 mb-8">
+          A Mock Test platform trusted by toppers for its transparency, authenticity, and integrity.
+        </p>
+        <button className="bg-[#4d868e] text-white px-8 py-3 rounded text-lg font-bold hover:bg-[#3d6f76] transition-colors shadow-md">
+          Explore Our Courses
+        </button>
+      </section>
+
+      {/* WhatsApp Floating Button */}
+      <div className="fixed bottom-6 right-6 z-[100]">
+        <button className="group flex items-center gap-3 bg-white border border-gray-200 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-full p-2 pr-5 hover:border-green-200 hover:bg-green-50 transition-all duration-300">
+          <div className="bg-[#25D366] text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+            <MessageCircle className="w-6 h-6" />
+          </div>
+          <div className="text-left hidden md:block">
+            <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Chat with us</p>
+            <p className="text-sm font-bold text-gray-800">Have questions? Reach out to us directly!</p>
+          </div>
+        </button>
+      </div>
+
+      {/* 2. DIAGRAM SECTION */}
+      <section className="py-20 text-center px-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-[#2d3748] mb-16">
+          Test your current affairs knowledge every fortnight!
+        </h2>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
+        <div className="max-w-4xl mx-auto relative h-[400px] flex items-center justify-center">
+          {/* Logo in background top center */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 opacity-80">
+            <img src="/logo.jpeg" alt="MockMentor Logo" className="h-8 md:h-10 object-contain" />
+          </div>
+
+          {/* Central Box */}
+          <div className="z-10 bg-[#2d4a52] text-white font-bold py-3 px-6 rounded relative uppercase tracking-wider text-sm md:text-base">
+            What's Included ?
+          </div>
+
+          {/* Lines (SVG) */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
+            {/* Top Left Line */}
+            <path d="M 250 150 Q 250 200, 420 200" fill="none" stroke="#2d4a52" strokeWidth="2" strokeDasharray="6,6" markerEnd="url(#arrow)" />
+            {/* Top Right Line */}
+            <path d="M 650 150 Q 650 200, 480 200" fill="none" stroke="#2d4a52" strokeWidth="2" strokeDasharray="6,6" markerEnd="url(#arrow)" />
+            {/* Bottom Left Line */}
+            <path d="M 250 250 Q 250 200, 420 200" fill="none" stroke="#2d4a52" strokeWidth="2" strokeDasharray="6,6" />
+            {/* Bottom Right Line */}
+            <path d="M 650 250 Q 650 200, 480 200" fill="none" stroke="#2d4a52" strokeWidth="2" strokeDasharray="6,6" />
             
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="lg:w-1/2 z-20"
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 text-white text-xs font-bold tracking-wide uppercase mb-8 shadow-soft-xl">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
-                </span>
-                Admissions Open for 2025
-              </div>
-              
-              <h1 className="text-6xl md:text-[5rem] font-black text-slate-900 leading-[1.05] tracking-tight mb-8">
-                Clear RBI Grade B<br />
-                <span className="text-gradient">With Certainty.</span>
-              </h1>
-              
-              <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-lg font-medium">
-                The most rigorous, topper-recommended platform. We don't just provide material—we force you to write, evaluate your answers, and prepare you for the interview.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <button onClick={() => {
-                  document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
-                }} className="group flex items-center justify-center gap-3 bg-brand-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-brand-glow hover:bg-brand-700 hover:scale-[1.02] transition-all">
-                  Start Your Journey
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button className="flex items-center justify-center gap-3 bg-white text-slate-800 border-2 border-slate-200 px-8 py-4 rounded-2xl font-bold text-lg hover:border-brand-600 hover:text-brand-600 transition-all">
-                  <PlayCircle className="w-5 h-5" />
-                  Watch Strategy
-                </button>
-              </div>
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z" fill="#2d4a52" />
+              </marker>
+            </defs>
+          </svg>
 
-              <div className="flex items-center gap-5">
-                <div className="flex -space-x-3">
-                  {[1,2,3,4,5].map((i) => (
-                    <img key={i} className="w-10 h-10 rounded-full border-[3px] border-white shadow-sm object-cover" src={`https://i.pravatar.cc/100?img=${i+20}`} alt="Student" />
-                  ))}
-                </div>
-                <div>
-                  <div className="flex items-center gap-1 mb-0.5">
-                    {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
-                  </div>
-                  <p className="text-sm font-bold text-slate-800">Joined by 10,000+ aspirants</p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="lg:w-1/2 relative"
-            >
-              {/* Complex Floating Elements Video Card */}
-              <div className="relative z-10 w-full max-w-lg mx-auto aspect-[4/5] md:aspect-square">
-                <div className="absolute inset-0 bg-gradient-to-tr from-brand-600 to-brand-400 rounded-[2.5rem] rotate-3 scale-105 opacity-20 blur-xl"></div>
-                <div className="absolute inset-0 bg-white rounded-[2rem] shadow-soft-xl border border-white/50 overflow-hidden group">
-                  <img 
-                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-                    alt="Study Group" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-slate-900/30 group-hover:bg-slate-900/40 transition-colors"></div>
-                  
-                  {/* Play Button */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 shadow-2xl cursor-pointer group-hover:scale-110 transition-transform">
-                      <PlayCircle className="w-10 h-10 text-white fill-white/20" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Floating Badges */}
-                <motion.div 
-                  animate={{ y: [0, -10, 0] }} 
-                  transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                  className="absolute -top-6 -right-6 bg-white p-4 rounded-2xl shadow-soft-xl border border-slate-100 flex items-center gap-3 z-20"
-                >
-                  <div className="bg-green-100 p-2 rounded-xl text-green-600"><CheckCircle2 className="w-6 h-6" /></div>
-                  <div>
-                    <p className="text-xs text-slate-500 font-bold uppercase">Success Rate</p>
-                    <p className="text-lg font-black text-slate-900">4x Higher</p>
-                  </div>
-                </motion.div>
-
-                <motion.div 
-                  animate={{ y: [0, 10, 0] }} 
-                  transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
-                  className="absolute -bottom-8 -left-8 bg-slate-900 p-5 rounded-2xl shadow-soft-xl border border-slate-700 flex items-center gap-4 z-20"
-                >
-                  <div className="bg-brand-500 p-3 rounded-xl text-white"><PenTool className="w-6 h-6" /></div>
-                  <div>
-                    <p className="text-xs text-slate-400 font-bold uppercase">Evaluations Done</p>
-                    <p className="text-xl font-black text-white">50,000+</p>
-                  </div>
-                </motion.div>
-              </div>
-            </motion.div>
-
+          {/* Nodes */}
+          <div className="absolute top-[80px] left-[15%] md:left-[20%]">
+            <div className="bg-[#568d99] text-white font-bold py-3 px-8 rounded-full text-sm shadow-md">
+              PIB NEWS
+            </div>
+          </div>
+          <div className="absolute top-[80px] right-[15%] md:right-[20%]">
+            <div className="bg-[#568d99] text-white font-bold py-3 px-8 rounded-full text-sm shadow-md">
+              RBI + SEBI CIRCULARS
+            </div>
+          </div>
+          <div className="absolute bottom-[80px] left-[15%] md:left-[20%]">
+            <div className="bg-[#568d99] text-white font-bold py-3 px-8 rounded-full text-sm shadow-md">
+              MISCELLANEOUS GA
+            </div>
+          </div>
+          <div className="absolute bottom-[80px] right-[15%] md:right-[20%]">
+            <div className="bg-[#568d99] text-white font-bold py-3 px-8 rounded-full text-sm shadow-md">
+              SCHEMES + REPORTS
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 2. COURSES SECTION */}
-      <section id="courses" className="py-24 bg-slate-50 relative border-t border-slate-200/60 scroll-mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div className="max-w-2xl">
-              <h2 className="text-4xl font-black text-slate-900 mb-4 tracking-tight">Ecosystem of Excellence.</h2>
-              <p className="text-lg text-slate-600 font-medium">Stop hunting for notes. We provide a single, unified platform covering Phase I, Phase II, and Interview preparation.</p>
+      {/* 3. YOUTUBE SECTION */}
+      <section className="py-16 bg-[#f8fbff] px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-10 text-[#4285F4]">
+            Cover RBI Circulars <span className="text-[#EA4335]">from YouTube</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg border border-gray-200">
+              <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&q=80" alt="Video 1" className="w-full h-[250px] object-cover" />
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition-colors">
+                <PlayCircle className="w-16 h-16 text-red-600 fill-white group-hover:scale-110 transition-transform" />
+              </div>
+              <div className="absolute top-4 left-4 text-white font-bold text-sm drop-shadow-md">Annual Report Of Ombudsman Scheme, 2024-25</div>
+            </div>
+            <div className="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg border border-gray-200">
+              <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=600&q=80" alt="Video 2" className="w-full h-[250px] object-cover" />
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition-colors">
+                <PlayCircle className="w-16 h-16 text-red-600 fill-white group-hover:scale-110 transition-transform" />
+              </div>
+              <div className="absolute top-4 left-4 text-white font-bold text-sm drop-shadow-md">National Strategy For Financial Inclusion | RBI Grade B</div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            
-            {/* Super Elite - Large Bento Span */}
-            <div className="lg:col-span-7 bg-slate-900 rounded-[2rem] p-8 md:p-12 text-white relative overflow-hidden group shadow-soft-xl border border-slate-800 flex flex-col">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-500 rounded-full blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity"></div>
-              
-              <div className="inline-flex self-start bg-brand-500/20 border border-brand-400/30 text-brand-300 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
-                Premium Package
-              </div>
-              
-              <h3 className="text-3xl md:text-4xl font-black mb-4">Super Elite Course</h3>
-              <p className="text-slate-400 text-lg mb-8 max-w-md">The ultimate preparation ecosystem. Phase I + II coverage, personalized descriptive evaluation, and 1-on-1 interview mentorship.</p>
-              
-              <div className="grid grid-cols-2 gap-4 mb-10 max-w-lg">
-                {["400+ Hrs Video", "Descriptive Checking", "Interview Guidance", "Printed Materials"].map((feat, i) => (
-                  <div key={i} className="flex items-center gap-2 text-sm font-medium text-slate-300">
-                    <CheckCircle2 className="w-5 h-5 text-brand-400" /> {feat}
+      {/* 4. OUR COURSES SECTION */}
+      <section className="py-20 px-4 bg-[#fafafa]">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-800 mb-10">Our Courses</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {courses.map((course, idx) => (
+              <div key={idx} className="bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden flex flex-col">
+                <div className="h-48 bg-gray-100 relative">
+                  <img src={course.img} alt={course.title} className="w-full h-full object-cover" />
+                  <div className="absolute top-2 left-1/2 -translate-x-1/2 text-[10px] text-emerald-600 font-bold tracking-widest uppercase bg-white/80 px-2 rounded">
+                    Mock Mentor
                   </div>
-                ))}
-              </div>
-
-              <div className="mt-auto flex items-end justify-between border-t border-slate-800 pt-8">
-                <div>
-                  <p className="text-slate-500 font-medium mb-1 line-through">₹24,999</p>
-                  <p className="text-4xl font-black text-white">₹14,999</p>
                 </div>
-                <button onClick={() => navigate('/courses/super-elite')} className="bg-white text-slate-900 px-6 py-3 rounded-xl font-bold hover:bg-slate-100 transition-colors flex items-center gap-2">
-                  Enroll Now <ChevronRight className="w-4 h-4" />
+                <div className="p-5 flex flex-col flex-grow">
+                  <h3 className="font-bold text-gray-800 text-lg mb-2 leading-tight">{course.title}</h3>
+                  <div className="text-xs text-gray-500 mb-4 flex items-center gap-1">
+                    <span className="w-3 h-3 inline-block rounded-full border border-gray-400"></span>
+                    {course.validity}
+                  </div>
+                  
+                  <div className="mt-auto">
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className="font-bold text-xl text-gray-900">₹ {course.price}</span>
+                      <span className="text-sm text-gray-400 line-through">₹ {course.oldPrice}</span>
+                      <span className="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-0.5 rounded">{course.discount}</span>
+                    </div>
+                    
+                    <div className="flex items-center gap-3">
+                      <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded transition-colors text-sm">
+                        BUY NOW
+                      </button>
+                      <Link to={`/courses/${idx}`} className="text-red-500 hover:text-red-600 font-bold text-sm underline underline-offset-2">
+                        details
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+
+            {/* Demo Course Card */}
+            <div className="bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden flex flex-col">
+              <div className="h-48 bg-white flex items-center justify-center border-b border-gray-100">
+                <img src="/logo.jpeg" alt="MockMentor Logo" className="h-12 object-contain" />
+              </div>
+              <div className="p-5 flex flex-col flex-grow">
+                <h3 className="font-bold text-gray-800 text-lg mb-2">Demo Course</h3>
+                <div className="text-xs text-gray-500 mb-4 flex items-center gap-1">
+                  <span className="w-3 h-3 inline-block rounded-full border border-gray-400"></span>
+                  365 Days Validity
+                </div>
+                <div className="mt-auto pt-4">
+                  <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded transition-colors text-sm">
+                    ENROLL FOR FREE
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            {/* Empty placeholders to match grid from screenshot */}
+            <div className="bg-gray-100 rounded-lg border border-gray-200 p-5 flex flex-col gap-4">
+               <div className="h-32 bg-gray-200 rounded"></div>
+               <div className="h-6 bg-gray-200 rounded w-3/4"></div>
+               <div className="h-10 bg-gray-200 rounded mt-auto"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4B. COURSE COMPARISON */}
+      <section className="py-20 px-4 bg-gray-50 border-t border-gray-200">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">Compare Our Top Programs</h2>
+          
+          <div className="flex flex-col lg:flex-row gap-6 max-w-5xl mx-auto items-center lg:items-stretch">
+            
+            {/* Super Elite Course (Dark Card) */}
+            <div className="bg-[#1a1c29] text-white rounded-3xl p-8 lg:p-10 flex-1 relative overflow-hidden shadow-xl w-full max-w-lg">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+              
+              <div className="bg-[#2a2d3d] text-xs font-bold px-3 py-1 rounded inline-block mb-6 tracking-wide text-gray-300">
+                PREMIUM PACKAGE
+              </div>
+              
+              <h2 className="text-3xl font-bold mb-4">Super Elite Course</h2>
+              <p className="text-gray-400 mb-8 font-medium">1-on-1 interview mentorship.</p>
+              
+              <div className="grid grid-cols-2 gap-y-4 gap-x-2 mb-12">
+                <div className="flex items-center gap-2 text-sm text-gray-300 font-medium">
+                  <CheckCircle2 className="w-5 h-5 text-blue-400" />
+                  400+ Hrs Video
+                </div>
+                <div className="flex items-center gap-2 text-sm text-gray-300 font-medium">
+                  <CheckCircle2 className="w-5 h-5 text-blue-400" />
+                  Descriptive Checking
+                </div>
+                <div className="flex items-center gap-2 text-sm text-gray-300 font-medium">
+                  <CheckCircle2 className="w-5 h-5 text-blue-400" />
+                  Interview Guidance
+                </div>
+                <div className="flex items-center gap-2 text-sm text-gray-300 font-medium">
+                  <CheckCircle2 className="w-5 h-5 text-blue-400" />
+                  Printed Materials
+                </div>
+              </div>
+              
+              <div className="mt-auto flex justify-between items-end">
+                <div>
+                  <p className="text-gray-500 line-through text-sm mb-1">₹24,999</p>
+                  <p className="text-3xl font-bold">₹14,999</p>
+                </div>
+                <button className="bg-white text-black font-bold py-3 px-6 rounded-lg hover:bg-gray-200 transition-colors flex items-center gap-2">
+                  Enroll Now <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
-
-            {/* Elite Course - Small Bento Span */}
-            <div className="lg:col-span-5 bg-white rounded-[2rem] p-8 md:p-10 shadow-soft-xl border border-slate-200 flex flex-col group hover:border-brand-300 transition-colors">
-              <div className="inline-flex self-start bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
-                Core Foundation
+            
+            {/* Elite Course (Light Card) */}
+            <div className="bg-white text-gray-900 rounded-3xl p-8 lg:p-10 flex-1 shadow-lg border border-gray-100 flex flex-col w-full max-w-lg">
+              <div className="bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded inline-block mb-6 tracking-wide self-start">
+                CORE FOUNDATION
               </div>
               
-              <h3 className="text-2xl font-black text-slate-900 mb-3">Elite Course</h3>
-              <p className="text-slate-600 mb-8 leading-relaxed">Comprehensive coverage of Phase I and Phase II with recorded lectures, detailed PDFs, and Mock Tests.</p>
+              <h2 className="text-2xl font-bold mb-2">Elite Course</h2>
+              <p className="text-gray-500 mb-8 text-sm font-medium">Comprehensive coverage of Phase I and Phase II</p>
               
-              <ul className="space-y-4 mb-10 text-slate-700 font-medium">
-                <li className="flex gap-3"><BookOpen className="w-5 h-5 text-brand-600" /> Complete Phase 1 & 2 Video Course</li>
-                <li className="flex gap-3"><FileText className="w-5 h-5 text-brand-600" /> Detailed PDF Notes</li>
-                <li className="flex gap-3"><Zap className="w-5 h-5 text-brand-600" /> 25+ Full-Length Mock Tests</li>
-              </ul>
-
-              <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-6">
-                <div>
-                  <p className="text-2xl font-black text-slate-900">₹7,999</p>
+              <div className="space-y-4 mb-12">
+                <div className="flex items-start gap-3 text-sm text-gray-700 font-medium">
+                  <PlayCircle className="w-5 h-5 text-blue-500 shrink-0" />
+                  Complete Phase 1 & 2 Video Course
                 </div>
-                <button onClick={() => navigate('/courses/elite-course')} className="text-brand-600 font-bold flex items-center gap-1 hover:gap-2 transition-all">
+                <div className="flex items-start gap-3 text-sm text-gray-700 font-medium">
+                  <FileText className="w-5 h-5 text-blue-500 shrink-0" />
+                  Detailed PDF Notes
+                </div>
+                <div className="flex items-start gap-3 text-sm text-gray-700 font-medium">
+                  <Target className="w-5 h-5 text-blue-500 shrink-0" />
+                  25+ Full-Length Mock Tests
+                </div>
+              </div>
+              
+              <div className="mt-auto flex justify-between items-center border-t border-gray-100 pt-6">
+                <p className="text-2xl font-bold">₹7,999</p>
+                <button className="text-blue-600 font-bold hover:text-blue-800 transition-colors flex items-center gap-2 text-sm">
                   View Details <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* 3. DESCRIPTIVE WRITING SECTION */}
-      <section id="descriptive-writing" className="py-24 bg-white relative border-t border-slate-200/60 overflow-hidden scroll-mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            
-            {/* Visual Side (Mock UI / Paper) */}
-            <div className="relative order-2 lg:order-1 h-[500px]">
-              <div className="absolute inset-0 bg-grid-pattern opacity-40"></div>
-              
-              {/* Base Paper */}
-              <motion.div 
-                whileInView={{ rotate: -2, scale: 1.02 }}
-                viewport={{ once: true }}
-                className="absolute top-10 left-10 right-10 bottom-10 bg-white shadow-[0_20px_50px_rgba(8,_112,_184,_0.1)] rounded-sm border border-slate-200 p-8 flex flex-col font-serif"
-              >
-                <div className="border-b-2 border-brand-600 pb-4 mb-6 flex justify-between items-end">
-                  <h4 className="text-xl font-bold text-slate-800">Q. Impact of CBDC on Indian Banking</h4>
-                  <span className="text-red-600 font-bold text-2xl font-sans">14<span className="text-base text-slate-400">/20</span></span>
-                </div>
-                <div className="space-y-4 text-slate-600 leading-relaxed text-sm">
-                  <p>Central Bank Digital Currency (CBDC) is a digital form of fiat currency. <span className="bg-yellow-100 text-yellow-900 px-1">While UPI is a payment interface, CBDC is money itself.</span></p>
-                  <p>The introduction of E-Rupee will have profound implications...</p>
-                </div>
-                
-                {/* Floating Feedback Tag */}
-                <div className="absolute top-32 -right-12 bg-slate-900 text-white p-4 rounded-xl shadow-xl border border-slate-700 w-64 font-sans transform rotate-3">
-                  <div className="flex items-start gap-2 mb-2">
-                    <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0" />
-                    <p className="text-xs font-medium">Good distinction between UPI and CBDC. Add points on 'anonymity feature' for value addition.</p>
-                  </div>
-                  <p className="text-[10px] text-slate-400 text-right">- Evaluated by Diksha (AIR 14)</p>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Text Side */}
-            <div className="order-1 lg:order-2">
-              <div className="w-16 h-16 bg-brand-50 rounded-2xl flex items-center justify-center mb-6">
-                <PenTool className="w-8 h-8 text-brand-600" />
-              </div>
-              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">The Descriptive <br/>Writing Edge.</h2>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed font-medium">
-                Phase II is make-or-break. Our flagship evaluation system gives you line-by-line feedback from previous year toppers. We don't just score you; we tell you exactly how to write like an AIR 1.
-              </p>
-              
-              <ul className="space-y-5 mb-10">
-                {[
-                  "Detailed feedback on Intro, Body & Conclusion.",
-                  "Vocabulary and structural corrections.",
-                  "Value addition points for every specific answer.",
-                  "Access to evaluated sheets of Selected Candidates."
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-4">
-                    <div className="bg-brand-100 p-1 rounded-full mt-1 shrink-0">
-                      <CheckCircle2 className="w-4 h-4 text-brand-600" />
-                    </div>
-                    <span className="text-slate-800 font-medium">{item}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <button onClick={() => navigate('/courses/descriptive-writing')} className="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-brand-600 transition-colors shadow-lg">
-                Explore Descriptive Hub
-              </button>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 4. FREE RESOURCES SECTION */}
-      <section id="free-resources" className="py-24 bg-slate-50 relative border-t border-slate-200/60 scroll-mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-            <div>
-              <h2 className="text-4xl font-black text-slate-900 mb-4 tracking-tight">Open Access Library.</h2>
-              <p className="text-lg text-slate-600 font-medium">High yield material, absolutely free. Start your prep right now.</p>
-            </div>
-            <button onClick={() => navigate('/free-resources')} className="bg-white border border-slate-200 text-slate-800 px-6 py-3 rounded-xl font-bold hover:bg-slate-100 transition-colors shadow-sm">
-              View All Resources
-            </button>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            <div className="lg:col-span-2 bg-brand-600 rounded-[2rem] p-8 text-white relative overflow-hidden group hover:shadow-brand-glow transition-all cursor-pointer">
-              <div className="absolute -right-10 -bottom-10 opacity-20 group-hover:scale-110 transition-transform duration-500">
-                <FileText className="w-64 h-64" />
-              </div>
-              <div className="relative z-10 h-full flex flex-col justify-between">
-                <div>
-                  <span className="bg-white/20 text-white px-3 py-1 rounded-full text-xs font-bold mb-4 inline-block">Must Read</span>
-                  <h3 className="text-3xl font-black mb-2">RBI Circulars 2024 Summary</h3>
-                  <p className="text-brand-100 font-medium">Complete compilation of crucial circulars from Jan to Dec.</p>
-                </div>
-                <div className="mt-12 flex items-center gap-2 font-bold text-white group-hover:gap-4 transition-all">
-                  Download PDF <ArrowRight className="w-5 h-5" />
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-soft-xl hover:border-brand-300 transition-colors cursor-pointer group flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-6 text-slate-600 group-hover:bg-brand-50 group-hover:text-brand-600 transition-colors">
-                  <BookOpen className="w-6 h-6" />
-                </div>
-                <h4 className="text-xl font-bold text-slate-900 mb-2">FM Formula Cheat Sheet</h4>
-                <p className="text-sm text-slate-500 font-medium">All finance formulas in 5 pages.</p>
-              </div>
-              <Download className="w-6 h-6 text-slate-300 mt-8 group-hover:text-brand-600 transition-colors" />
-            </div>
-
-            <div className="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-soft-xl hover:border-brand-300 transition-colors cursor-pointer group flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-6 text-slate-600 group-hover:bg-brand-50 group-hover:text-brand-600 transition-colors">
-                  <Award className="w-6 h-6" />
-                </div>
-                <h4 className="text-xl font-bold text-slate-900 mb-2">PYQ Memory Based 2023</h4>
-                <p className="text-sm text-slate-500 font-medium">Phase 1 Questions & Detailed Sol.</p>
-              </div>
-              <Download className="w-6 h-6 text-slate-300 mt-8 group-hover:text-brand-600 transition-colors" />
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 5. TOPPERS & RESULTS SECTION */}
-      <section id="toppers" className="py-24 bg-slate-900 text-white border-y border-slate-800 scroll-mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-black mb-4">Our Hall of Fame</h2>
-            <p className="text-slate-400 text-lg">Consistent results, year after year. Meet the Mock Mentor alumni.</p>
-          </div>
-
+      {/* 5. OUR OFFICERS / TESTIMONIALS */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Our Officers</h2>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {toppersList.map((topper, i) => (
-              <div key={i} className={`bg-slate-800/50 p-8 rounded-3xl border border-slate-700/50 backdrop-blur-sm hover:bg-slate-800 transition-colors ${i === 1 ? 'md:translate-y-8' : ''}`}>
-                <div className="flex items-center gap-4 mb-6">
-                  <img src={topper.img} alt={topper.name} className="w-16 h-16 rounded-2xl object-cover" />
+            {officers.map((officer, idx) => (
+              <div key={idx} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 flex flex-col">
+                <div className="flex items-start gap-4 mb-4">
+                  <img src={officer.img} alt={officer.name} className="w-12 h-12 rounded-full object-cover border border-gray-200" />
                   <div>
-                    <h4 className="font-bold text-lg">{topper.name}</h4>
-                    <span className="inline-block bg-brand-500 text-white px-2 py-0.5 rounded text-xs font-bold mt-1">{topper.rank}</span>
+                    <h4 className="font-bold text-sm text-gray-900">{officer.name}</h4>
+                    <p className="text-xs font-bold text-gray-800">{officer.rank}</p>
+                    <p className="text-[10px] text-gray-500">{officer.prog}</p>
                   </div>
                 </div>
-                <p className="text-slate-300 font-medium leading-relaxed italic mb-6">"{topper.text}"</p>
-                
+                <p className="text-xs text-gray-600 mb-4 flex-grow leading-relaxed">
+                  {officer.text}
+                </p>
+                <div className="mt-auto">
+                  <button 
+                    onClick={() => setSelectedFeedback(officer)}
+                    className="text-blue-600 font-bold text-xs underline decoration-blue-600 underline-offset-2 hover:text-blue-800 focus:outline-none"
+                  >
+                    detailed feedback
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-16 text-center">
+            <Link to="/toppers" className="inline-block bg-blue-600 text-white font-bold py-3.5 px-8 rounded-full hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              View All Toppers & Result Reviews
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. WHY CHOOSE MOCK MENTOR */}
+      <section className="py-16 px-4 bg-white border-t border-gray-100">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-[#2d3748] mb-8">Why Choose Mock Mentor?</h2>
+          <ul className="text-left space-y-4 text-gray-600 font-medium mb-10 max-w-3xl mx-auto text-sm md:text-base">
+            <li className="flex items-start gap-3">
+              <span className="w-2 h-2 rounded-full bg-gray-800 mt-2 shrink-0"></span>
+              Our platform is built on a thorough analysis of previous year's questions to create highly exam relevant mock tests.
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-2 h-2 rounded-full bg-gray-800 mt-2 shrink-0"></span>
+              MCQs on a fortnightly basis that covers all the important news for every 2 weeks.
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-2 h-2 rounded-full bg-gray-800 mt-2 shrink-0"></span>
+              Crafted by experts with in-depth subject knowledge and experience to ensure high-quality, well-researched and exam-oriented content.
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-2 h-2 rounded-full bg-gray-800 mt-2 shrink-0"></span>
+              One stop solution for Regulatory, banking and insurance exams.
+            </li>
+          </ul>
+          <button className="bg-[#0088cc] hover:bg-[#0077b3] text-white px-8 py-3 rounded-md font-bold transition-colors inline-flex items-center gap-2 shadow-md">
+            JOIN US ON TELEGRAM
+          </button>
+        </div>
+      </section>
+
+      {/* 7. FAQS */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-[#1a202c] mb-10">Frequently Asked Questions by You</h2>
+          
+          <div className="space-y-3">
+            {faqs.map((faq, idx) => (
+              <div key={idx} className="border border-gray-200 rounded-md overflow-hidden">
                 <button 
-                  onClick={() => setSelectedTopper(topper)}
-                  className="text-brand-400 font-bold flex items-center gap-2 hover:text-white transition-colors"
+                  onClick={() => toggleFaq(idx)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center bg-white hover:bg-gray-50 transition-colors"
                 >
-                  Read Full Strategy <ArrowRight className="w-4 h-4" />
+                  <span className="font-medium text-gray-800 text-sm md:text-base">{faq}</span>
+                  <ChevronDown className={`w-5 h-5 text-gray-500 transition-transform ${openFaq === idx ? 'rotate-180' : ''}`} />
                 </button>
+                {openFaq === idx && (
+                  <div className="px-6 py-4 bg-gray-50 border-t border-gray-200 text-sm text-gray-600">
+                    This is a placeholder answer for the frequently asked question.
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* STRATEGY MODAL */}
-      <AnimatePresence>
-        {selectedTopper && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedTopper(null)}
-              className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm"
-            />
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
-            >
-              {/* Header */}
-              <div className="bg-slate-50 border-b border-slate-100 p-6 flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <img src={selectedTopper.img} alt={selectedTopper.name} className="w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm" />
-                  <div>
-                    <h3 className="text-2xl font-black text-slate-900">{selectedTopper.name}</h3>
-                    <span className="text-brand-600 font-bold text-sm bg-brand-50 px-2 py-1 rounded-md">{selectedTopper.rank}</span>
-                  </div>
-                </div>
-                <button 
-                  onClick={() => setSelectedTopper(null)}
-                  className="p-2 bg-white border border-slate-200 rounded-full text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              {/* Body */}
-              <div className="p-8 overflow-y-auto">
-                <h4 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-                  <PenTool className="w-5 h-5 text-brand-600" />
-                  Preparation Strategy
-                </h4>
-                <div className="prose prose-slate max-w-none">
-                  <p className="text-slate-600 leading-relaxed whitespace-pre-line text-lg">
-                    {selectedTopper.fullStrategy}
-                  </p>
-                </div>
-                
-                <div className="mt-8 pt-8 border-t border-slate-100">
-                  <h4 className="text-md font-bold text-slate-900 mb-4">Courses Enrolled</h4>
-                  <div className="flex gap-3">
-                    <span className="bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
-                      <BookOpen className="w-4 h-4 text-slate-500" /> Elite Course
-                    </span>
-                    <span className="bg-brand-50 text-brand-700 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-2">
-                      <PenTool className="w-4 h-4 text-brand-500" /> Descriptive Evaluation
-                    </span>
-                  </div>
+      {/* Feedback Modal */}
+      {selectedFeedback && (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-gray-900/60 backdrop-blur-sm" onClick={() => setSelectedFeedback(null)}>
+          <div 
+            className="bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[85vh] flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-center p-6 border-b border-gray-100 bg-gray-50/50">
+              <div className="flex items-center gap-4">
+                <img src={selectedFeedback.img} alt={selectedFeedback.name} className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm" />
+                <div>
+                  <h3 className="font-bold text-lg text-gray-900">{selectedFeedback.name}</h3>
+                  <p className="text-sm font-semibold text-emerald-600">{selectedFeedback.rank}</p>
                 </div>
               </div>
-            </motion.div>
+              <button 
+                onClick={() => setSelectedFeedback(null)}
+                className="text-gray-400 hover:text-gray-700 bg-white hover:bg-gray-100 p-2 rounded-full transition-colors border border-gray-200 shadow-sm"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="p-6 md:p-8 overflow-y-auto">
+              <div className="text-gray-700 leading-relaxed text-[15px] space-y-4">
+                {(selectedFeedback.fullText || selectedFeedback.text).split('\n').map((para, i) => (
+                  para.trim() ? <p key={i}>{para}</p> : <div key={i} className="h-1"></div>
+                ))}
+              </div>
+            </div>
           </div>
-        )}
-      </AnimatePresence>
-
+        </div>
+      )}
     </div>
   );
 };

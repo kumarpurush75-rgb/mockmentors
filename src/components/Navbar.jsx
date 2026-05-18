@@ -1,140 +1,74 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, BookOpen } from 'lucide-react';
-import AuthModal from './AuthModal';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const navLinks = [
-    { name: 'Home', hash: '#home' },
-    { name: 'Courses', hash: '#courses' },
-    { name: 'Descriptive Writing', hash: '#descriptive-writing' },
-    { name: 'Free Resources', hash: '#free-resources' },
-    { name: 'Toppers & Results', hash: '#toppers' }
-  ];
-
-  const handleNavClick = (e, hash) => {
-    e.preventDefault();
-    setIsOpen(false);
-    
-    if (location.pathname !== '/') {
-      // If not on home page, navigate to home and then scroll
-      navigate('/');
-      setTimeout(() => {
-        const element = document.querySelector(hash);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    } else {
-      // If already on home page, just scroll
-      const element = document.querySelector(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
 
   return (
-    <>
-      <nav className="fixed top-0 w-full z-50 glass-panel">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+    <nav className="fixed top-0 w-full z-50 bg-white border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16 md:h-20">
+          
+          {/* Logo */}
+          <div className="flex items-center gap-6">
+            <Link to="/" className="flex items-center gap-1">
+              <img src="/logo.jpeg" alt="MockMentor Logo" className="h-8 md:h-10 object-contain" />
+            </Link>
+          </div>
+
+          {/* Desktop Menu */}
+          <div className="hidden lg:flex items-center space-x-3">
+            <Link to="/toppers" className="text-gray-700 bg-gray-50 border border-gray-200 px-4 py-1.5 rounded-md text-sm font-medium hover:bg-gray-100 transition-colors">
+              Toppers & Results
+            </Link>
             
-            {/* Logo */}
-            <div className="flex-shrink-0 flex items-center">
-              <a href="/#home" onClick={(e) => handleNavClick(e, '#home')} className="flex items-center gap-2">
-                <div className="bg-brand-600 p-2 rounded-lg">
-                  <BookOpen className="h-6 w-6 text-white" />
-                </div>
-                <span className="font-bold text-xl tracking-tight text-slate-900">
-                  Mock<span className="text-brand-600">Mentor</span>
-                </span>
-              </a>
-            </div>
+            <Link to="/descriptive-writing" className="text-gray-700 bg-gray-50 border border-gray-200 px-4 py-1.5 rounded-md text-sm font-medium hover:bg-gray-100 transition-colors">
+              Descriptive Writing
+            </Link>
 
-            {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={`/${link.hash}`}
-                  onClick={(e) => handleNavClick(e, link.hash)}
-                  className="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors duration-200"
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
+            <button className="text-blue-600 border border-blue-600 px-4 py-1.5 rounded-md text-sm font-medium hover:bg-blue-50 transition-colors">
+              SIGN IN
+            </button>
+            
+            <button className="bg-blue-600 text-white px-4 py-1.5 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors shadow-sm">
+              SIGN UP
+            </button>
+            
+            <button className="bg-red-600 text-white px-4 py-1.5 rounded-md text-sm font-medium hover:bg-red-700 transition-colors shadow-sm">
+              YouTube
+            </button>
+            
+            <button className="bg-blue-500 text-white px-4 py-1.5 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors shadow-sm">
+              Helpline No - 9431986819
+            </button>
+          </div>
 
-            {/* CTA Buttons */}
-            <div className="hidden md:flex items-center space-x-4">
-              <button 
-                onClick={() => setIsAuthModalOpen(true)}
-                className="text-slate-600 hover:text-brand-600 font-medium text-sm transition-colors"
-              >
-                Login
-              </button>
-              <button 
-                onClick={() => setIsAuthModalOpen(true)}
-                className="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2 rounded-full text-sm font-medium transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
-              >
-                Sign Up
-              </button>
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="md:hidden flex items-center">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="text-slate-600 hover:text-slate-900 focus:outline-none"
-              >
-                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </button>
-            </div>
+          {/* Mobile menu button */}
+          <div className="lg:hidden flex items-center">
+            <button onClick={() => setIsOpen(!isOpen)} className="text-gray-600 focus:outline-none">
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full">
-            <div className="px-4 pt-2 pb-6 space-y-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={`/${link.hash}`}
-                  onClick={(e) => handleNavClick(e, link.hash)}
-                  className="block px-3 py-3 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-600"
-                >
-                  {link.name}
-                </a>
-              ))}
-              <div className="pt-4 flex flex-col gap-3 px-3">
-                <button 
-                  onClick={() => { setIsOpen(false); setIsAuthModalOpen(true); }}
-                  className="w-full text-center text-brand-600 border border-brand-200 bg-brand-50 py-2 rounded-lg font-medium"
-                >
-                  Login
-                </button>
-                <button 
-                  onClick={() => { setIsOpen(false); setIsAuthModalOpen(true); }}
-                  className="w-full text-center bg-brand-600 text-white py-2 rounded-lg font-medium shadow-md"
-                >
-                  Sign Up
-                </button>
-              </div>
-            </div>
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="lg:hidden bg-white border-t border-gray-100 px-4 pt-3 pb-5 space-y-3 shadow-lg">
+          <div className="grid grid-cols-2 gap-2 mb-2">
+            <Link to="/toppers" className="text-center text-gray-700 bg-gray-50 border border-gray-200 py-2 rounded-md text-sm font-medium active:bg-gray-100 transition-colors">Toppers & Results</Link>
+            <Link to="/descriptive-writing" className="text-center text-gray-700 bg-gray-50 border border-gray-200 py-2 rounded-md text-sm font-medium active:bg-gray-100 transition-colors">Descriptive Writing</Link>
           </div>
-        )}
-      </nav>
-
-      {/* Auth Modal */}
-      <AuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
-    </>
+          <div className="grid grid-cols-2 gap-2">
+            <button className="text-blue-600 border border-blue-600 py-2 rounded-md text-sm font-medium">SIGN IN</button>
+            <button className="bg-blue-600 text-white py-2 rounded-md text-sm font-medium shadow-sm">SIGN UP</button>
+          </div>
+          <button className="w-full bg-red-600 text-white py-2 rounded-md text-sm font-medium shadow-sm">YouTube</button>
+          <button className="w-full bg-blue-500 text-white py-2 rounded-md text-sm font-medium shadow-sm">Helpline No - 9431986819</button>
+        </div>
+      )}
+    </nav>
   );
 };
 
