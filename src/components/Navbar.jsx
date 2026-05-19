@@ -23,7 +23,7 @@ const Navbar = () => {
               Toppers & Results
             </Link>
             
-            <Link to="/descriptive-writing" className="text-gray-700 bg-gray-50 border border-gray-200 px-4 py-1.5 rounded-md text-sm font-medium hover:bg-gray-100 transition-colors">
+            <Link to="/courses/descriptive-writing" className="text-gray-700 bg-gray-50 border border-gray-200 px-4 py-1.5 rounded-md text-sm font-medium hover:bg-gray-100 transition-colors">
               Descriptive Writing
             </Link>
 
@@ -31,7 +31,7 @@ const Navbar = () => {
               SIGN IN
             </button>
             
-            <button className="bg-blue-600 text-white px-4 py-1.5 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors shadow-sm">
+            <button className="bg-[#488890] text-white px-4 py-1.5 rounded-md text-sm font-medium hover:bg-[#3a6d73] transition-colors shadow-sm">
               SIGN UP
             </button>
             
@@ -39,9 +39,9 @@ const Navbar = () => {
               YouTube
             </button>
             
-            <button className="bg-blue-500 text-white px-4 py-1.5 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors shadow-sm">
+            <a href="tel:9431986819" className="bg-blue-500 text-white px-4 py-1.5 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors shadow-sm flex items-center justify-center">
               Helpline No - 9431986819
-            </button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -58,14 +58,14 @@ const Navbar = () => {
         <div className="lg:hidden bg-white border-t border-gray-100 px-4 pt-3 pb-5 space-y-3 shadow-lg">
           <div className="grid grid-cols-2 gap-2 mb-2">
             <Link to="/toppers" className="text-center text-gray-700 bg-gray-50 border border-gray-200 py-2 rounded-md text-sm font-medium active:bg-gray-100 transition-colors">Toppers & Results</Link>
-            <Link to="/descriptive-writing" className="text-center text-gray-700 bg-gray-50 border border-gray-200 py-2 rounded-md text-sm font-medium active:bg-gray-100 transition-colors">Descriptive Writing</Link>
+            <Link to="/courses/descriptive-writing" className="text-center text-gray-700 bg-gray-50 border border-gray-200 py-2 rounded-md text-sm font-medium active:bg-gray-100 transition-colors">Descriptive Writing</Link>
           </div>
           <div className="grid grid-cols-2 gap-2">
             <button className="text-blue-600 border border-blue-600 py-2 rounded-md text-sm font-medium">SIGN IN</button>
-            <button className="bg-blue-600 text-white py-2 rounded-md text-sm font-medium shadow-sm">SIGN UP</button>
+            <button className="bg-[#488890] text-white py-2 rounded-md text-sm font-medium shadow-sm hover:bg-[#3a6d73]">SIGN UP</button>
           </div>
           <button className="w-full bg-red-600 text-white py-2 rounded-md text-sm font-medium shadow-sm">YouTube</button>
-          <button className="w-full bg-blue-500 text-white py-2 rounded-md text-sm font-medium shadow-sm">Helpline No - 9431986819</button>
+          <a href="tel:9431986819" className="w-full bg-blue-500 text-white py-2 rounded-md text-sm font-medium shadow-sm flex items-center justify-center">Helpline No - 9431986819</a>
         </div>
       )}
     </nav>

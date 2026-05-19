@@ -1,7 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link, useNavigate } from 'react-router-dom';
-import { BookOpen, Star, ArrowRight, CheckCircle2, Shield } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { BookOpen, Star, ArrowRight, CheckCircle2, Shield, X } from 'lucide-react';
+
+const superEliteDesc = `This course offers a comprehensive learning package designed to take you from foundational concepts to advanced-level preparation for RBI Phase 2.
+
+You will get well-structured static notes covering:
+
+* Economic & Social Issues (ESI)
+* Finance & Management (FM)
+* Ministry-wise Flagship Schemes
+
+The program also includes chapter-wise Phase 2 MCQs for Finance and Management to strengthen conceptual clarity and exam readiness.
+
+Additionally, you will receive:
+
+* Fortnightly Current Affairs Magazines
+* Fortnightly Current Affairs MCQs
+* “Topics in News” coverage for important developments
+* Descriptive writing practice on an exam-like interface
+* Additional fodder material for answer enrichment and better presentation
+
+This structured approach ensures complete preparation for both objective and descriptive sections of the examination.`;
+
+const eliteDesc = `The Elite Course offers complete RBI Phase 2 preparation with comprehensive coverage of both static and current affairs content, covering everything included in our flagship program except the descriptive writing module.
+
+The course includes:
+
+* Detailed static notes on Economic & Social Issues (ESI)
+* Comprehensive Finance & Management (FM) study material
+* Ministry-wise Flagship Schemes
+* Chapter-wise Phase 2 MCQs for Finance & Management
+* Fortnightly Current Affairs Magazines
+* Fortnightly Current Affairs MCQs
+* “Topics in News” coverage for important developments
+* Additional fodder materials for value addition and conceptual clarity
+
+Designed for aspirants who want strong conceptual preparation and extensive practice for the objective section, the Elite Course provides a structured and exam-oriented learning experience.`;
+
+const descriptiveDesc = `The RBI Grade B Descriptive Writing Programme is a specialized course designed to help aspirants excel in the descriptive section of RBI Grade B Phase 2 Examination. Since the descriptive paper carries significant weightage, mastering answer-writing techniques is essential to secure top scores and improve overall ranking.
+
+This programme focuses on building strong conceptual clarity, structured answer-writing skills, and exam-oriented presentation techniques through continuous practice and expert mentorship.
+
+What the Programme Covers:
+* Complete guidance for ESI & FM Descriptive Writing
+* Structured approach to essay, answer, and report writing
+* Topic-wise descriptive practice questions
+* Personalized feedback and evaluation
+* Exam-like writing practice interface
+* Value-added content and fodder material for enrichment
+* Current affairs integration for descriptive answers
+* Answer structuring techniques to maximize marks
+* Mentorship sessions and strategy discussions`;
 
 const courses = [
   {
@@ -15,7 +65,8 @@ const courses = [
     features: ["Line-by-line Evaluation", "Model Answers", "Live Strategy Sessions"],
     tag: "Best Seller",
     path: "/courses/descriptive-writing",
-    url: "https://www.mockmentor.in/learn/Descriptive-writing"
+    url: "https://www.mockmentor.in/learn/Descriptive-writing",
+    fullDesc: descriptiveDesc
   },
   {
     id: "elite-course",
@@ -28,7 +79,8 @@ const courses = [
     features: ["Video Lectures", "Detailed PDF Notes", "Full-length Mocks"],
     tag: "Most Popular",
     path: "/courses/elite-course",
-    url: "https://www.mockmentor.in/learn/RBI-Grade-B-2026-Full-Package"
+    url: "https://www.mockmentor.in/learn/RBI-Grade-B-2026-Full-Package",
+    fullDesc: eliteDesc
   },
   {
     id: "super-elite",
@@ -41,12 +93,32 @@ const courses = [
     features: ["Everything in Elite", "Descriptive Evaluation", "1-on-1 Mentorship"],
     tag: "Premium",
     path: "/courses/super-elite",
-    url: "https://www.mockmentor.in/learn/RBI-Grade-B-2026-Super-elite"
+    url: "https://www.mockmentor.in/learn/RBI-Grade-B-2026-Super-elite",
+    fullDesc: superEliteDesc
   }
 ];
 
 const Courses = () => {
-  const navigate = useNavigate();
+  const [selectedCourseDetails, setSelectedCourseDetails] = useState(null);
+
+  const renderCourseDesc = (text) => {
+    return text.split('\n').map((line, idx) => {
+      if (line.trim().startsWith('### ')) {
+        return <h4 key={idx} className="font-bold text-lg mt-4 mb-2 text-slate-800">{line.replace('### ', '')}</h4>;
+      } else if (line.trim().startsWith('* ')) {
+        let content = line.replace('* ', '');
+        if (content.includes('**')) {
+          const parts = content.split('**');
+          content = <>{parts[0]}<strong>{parts[1]}</strong>{parts[2]}</>;
+        }
+        return <li key={idx} className="ml-5 list-disc mb-1 text-slate-700">{content}</li>;
+      } else if (line.trim() === '') {
+        return <div key={idx} className="h-2"></div>;
+      } else {
+        return <p key={idx} className="mb-2 text-slate-700 leading-relaxed">{line}</p>;
+      }
+    });
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 pt-12 pb-24">
@@ -112,7 +184,7 @@ const Courses = () => {
                 
                 <div className="flex flex-col gap-3">
                   <button 
-                    onClick={() => navigate(course.path)}
+                    onClick={() => setSelectedCourseDetails(course)}
                     className="w-full text-center bg-white border-2 border-brand-600 text-brand-600 py-2.5 rounded-xl font-bold hover:bg-brand-50 transition-colors"
                   >
                     View Details
@@ -145,6 +217,31 @@ const Courses = () => {
           </div>
         </div>
       </div>
+      {/* Course Details Modal */}
+      {selectedCourseDetails && (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-gray-900/60 backdrop-blur-sm" onClick={() => setSelectedCourseDetails(null)}>
+          <div 
+            className="bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[85vh] flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-center p-6 border-b border-gray-100 bg-gray-50/50">
+              <h3 className="font-bold text-xl text-gray-900">{selectedCourseDetails.title}</h3>
+              <button 
+                onClick={() => setSelectedCourseDetails(null)}
+                className="text-gray-400 hover:text-gray-700 bg-white hover:bg-gray-100 p-2 rounded-full transition-colors border border-gray-200 shadow-sm shrink-0 ml-4"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="p-6 md:p-8 overflow-y-auto">
+              <div className="text-[15px]">
+                {renderCourseDesc(selectedCourseDetails.fullDesc)}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };

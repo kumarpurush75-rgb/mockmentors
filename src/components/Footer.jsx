@@ -39,16 +39,17 @@ const Footer = () => {
             <li><Link to="/courses" className="hover:text-brand-400 transition-colors">All Courses</Link></li>
             <li><Link to="/free-resources" className="hover:text-brand-400 transition-colors">Free Resources</Link></li>
             <li><Link to="/toppers" className="hover:text-brand-400 transition-colors">Toppers & Results</Link></li>
+            <li><Link to="/about" className="hover:text-brand-400 transition-colors">About Us</Link></li>
           </ul>
         </div>
 
         <div>
-          <h3 className="text-white font-semibold mb-4 tracking-wide text-sm uppercase">Legal</h3>
+          <h3 className="text-white font-semibold mb-4 tracking-wide text-sm uppercase">Legal & Info</h3>
           <ul className="space-y-3 text-sm">
-            <li><a href="#" className="hover:text-brand-400 transition-colors">Terms & Conditions</a></li>
-            <li><a href="#" className="hover:text-brand-400 transition-colors">Privacy Policy</a></li>
-            <li><a href="#" className="hover:text-brand-400 transition-colors">Refund Policy</a></li>
-            <li><a href="#" className="hover:text-brand-400 transition-colors">Contact Us</a></li>
+            <li><Link to="/terms" className="hover:text-brand-400 transition-colors">Terms & Conditions</Link></li>
+            <li><Link to="/privacy" className="hover:text-brand-400 transition-colors">Privacy Policy</Link></li>
+            <li><Link to="/refund" className="hover:text-brand-400 transition-colors">Refund Policy</Link></li>
+            <li><Link to="/contact" className="hover:text-brand-400 transition-colors">Contact Us</Link></li>
           </ul>
         </div>
       </div>

@@ -8,6 +8,11 @@ import DescriptiveWriting from './pages/DescriptiveWriting';
 import Toppers from './pages/Toppers';
 import FreeResources from './pages/FreeResources';
 import CourseDetail from './pages/CourseDetail';
+import Terms from './pages/Terms';
+import Privacy from './pages/Privacy';
+import Contact from './pages/Contact';
+import About from './pages/About';
+import Refund from './pages/Refund';
 
 function App() {
   return (
@@ -22,6 +27,11 @@ function App() {
             <Route path="/courses/:id" element={<CourseDetail />} />
             <Route path="/toppers" element={<Toppers />} />
             <Route path="/free-resources" element={<FreeResources />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/refund" element={<Refund />} />
           </Routes>
         </main>
         <Footer />

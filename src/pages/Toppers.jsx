@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Download } from 'lucide-react';
 
 const Toppers = () => {
   const [selectedReview, setSelectedReview] = useState(null);
   const [activeTab, setActiveTab] = useState('performance');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const defaultReview = "I am incredibly grateful to MockMentor for their invaluable guidance. The structured study materials, comprehensive mock tests, and personalized interview guidance were exactly what I needed to clear the RBI Grade B exam. Highly recommended!";
 
@@ -21,26 +25,36 @@ const Toppers = () => {
 
   const hariVishalReview = `Dear Mockmentor Team,\n\nIam delighted to let you know that I have cleared RBI GR B 2025 (Roll -1202000561).\n\nI took Phase 2 course and interview t from courses have immensely helped me to sail through this examination. Your Quality material, MCQ and Descriptive modules have helped me immensely to improve my performance.\n\nMockMentors Interview Guidance have immensely helped to gain confidence and positivity and quality of guidance and Material is top notch and helped me through out.\n\nI Extend my heartfelt gratitude to Team and on a personal note to Rahul Sir. Rahul sir has helped, assisted and guided me at the critical moment. Beyond guidance, Rahul sir and Teams collective efforts to provide consultation boosted my confidence, positivity just before the interview.\n\nI Extend my heartfelt gratitude to MockMentor team and Specially Rahul Sir for assistance through out.\n\nYours truly\nHari Vishal\n(Roll No - 1202000561)`;
 
+  const raghavReview = `Good Morning Sir,\nI will create a starategy document later.\nBut I want to say MockMentor specifically for interview was a game changer for me.\nYou handholded me in every step. I sent my DAF to you I believe 5-6 times and you helped me create a strong document. You provided around 400 questions on the basis of my DAF related to my background, academic, job and also helped me connect with like minded people. \nSir, Today I think if I would have not came across you what would I have done. And to sum it up. I believe MockMentor has been my support system for interview preparation.`;
+
   const toppersData = [
-    { name: 'Kumari Deeksha', rank: 2, program: 'RBI course + Interview Program', img: '/deeksha_portrait_1779098675776.jpeg', fullText: deekshaReview },
-    { name: 'Harshita Tiwari', rank: 7, program: 'Telegram Channel and MCQ pack', img: '/harshita_portrait.jpeg', fullText: defaultReview },
+    { name: 'Kumari Deeksha', rank: 2, program: 'RBI course + Interview Program', img: '/deeksha_portrait_1779098675776.jpeg', fullText: deekshaReview, badges: ['FM Desc: 39 (Highest)', 'Interview: 58 (2nd Highest)'] },
+    { name: 'Harshita Tiwari', rank: 7, program: 'MCQ pack', img: '/harshita_portrait.jpeg', fullText: defaultReview },
     { name: 'Ranjini', rank: 10, program: 'RBI course + Interview Program', img: '/ranjini_portrait_1779098721645.jpeg', fullText: defaultReview },
-    { name: 'Hari Vishal', rank: 11, program: 'RBI course + Interview Program', img: '/hari_vishal_portrait_1779098769758.jpeg', fullText: hariVishalReview },
-    { name: 'Himanshi Tulsiani', rank: 15, program: 'RBI course + Interview Program', img: '/himanshi_portrait_1779098692272.jpeg', fullText: himanshiReview },
-    { name: 'Saurabh Sharma', rank: 31, program: 'RBI course + Interview Program', img: '/saurabh_portrait_1779098656404.jpeg', fullText: saurabhReview },
+    { name: 'Hari Vishal', rank: 11, program: 'RBI course + Interview Program', img: '/hari_vishal_portrait_1779098769758.jpeg', fullText: hariVishalReview, badges: ['Phase 2: 205.75 (Highest)', 'ESI Desc: 36 (Highest)', 'ESI Obj: 29.5 (Highest)'] },
+    { name: 'Himanshi Tulsiani', rank: 15, program: 'RBI course + Interview Program', img: '/himanshi_portrait_1779098692272.png', fullText: himanshiReview, badges: ['FM Obj: 44 (Top Score)'] },
+    { name: 'Saurabh Sharma', rank: 31, program: 'RBI course + Interview Program', img: '/saurabh_portrait_1779098656404.jpeg', fullText: saurabhReview, badges: ['ESI Obj: 29.25 (2nd Highest)'] },
     { name: 'Karthik Sankar', rank: 34, program: 'Phase 2 course', img: '/karthik_portrait.jpeg', fullText: karthikReview },
-    { name: 'Atithi Kumar', rank: 38, program: 'Interview Program', img: '/atithi_portrait_1779098738039.jpeg', firstAttempt: true, fullText: atithiReview },
-    { name: 'Hari Jagan', rank: 53, program: 'RBI course + Interview Program', img: '/hari_jegan_portrait_1779098790015.jpeg', highestPhase2: true, fullText: hariJaganReview },
-    { name: 'Rajesh', rank: 57, program: 'RBI course + Interview Program', img: '/rajesh_portrait_1779098806492.jpeg', fullText: defaultReview },
+    { name: 'Atithi Kumar', rank: 38, program: 'Interview Program', img: '/atithi_portrait_1779098738039.jpeg', fullText: atithiReview, badges: ['First Attempt'] },
+    { name: 'Hari Jagan', rank: 53, program: 'RBI course + Interview Program', img: '/hari_jegan_portrait_1779098790015.jpeg', fullText: hariJaganReview },
+    { name: 'Rajesh', rank: 57, program: 'RBI course + Interview Program', img: '/rajesh_portrait_1779098806492.png', fullText: defaultReview },
     { name: 'Jay', rank: 70, program: 'Interview Program', img: '/jay_portrait_1779098621795.jpeg', fullText: defaultReview },
-    { name: 'Raghav Manglik', rank: 71, program: 'RBI course + Interview Program', img: '/raghav_portrait_1779098642377.jpeg', fullText: defaultReview },
+    { name: 'Raghav Manglik', rank: 71, program: 'RBI course + Interview Program', img: '/raghav_portrait_1779098642377.jpeg', fullText: raghavReview },
     { name: 'Sajal Gupta', rank: 75, program: 'RBI course + Interview Program', img: '/sajal_portrait_1779098753254.jpeg', fullText: defaultReview },
   ];
 
+  const toppersData2024 = [
+    { name: "Vicky Kumar", rank: 10, program: "RBI Interview Guidance Program", img: "/Vicky.jpeg" },
+    { name: "Pooja", rank: 24, program: "RBI Interview Guidance Program", img: "/Pooja.jpeg" },
+    { name: "Rahul Mohanani", rank: 26, program: "RBI Interview Guidance Program", img: "/Rahul.jpeg" },
+    { name: "Utkarsh Sachan", rank: 35, program: "RBI Interview Guidance Program", img: "/Utkarsh.jpeg" },
+    { name: "Vipul", rank: 44, program: "RBI Interview Guidance Program" }
+  ];
+
   const strategyData = [
-    { name: 'Kumari Deeksha', rank: 2, img: '/deeksha_portrait_1779098675776.jpeg', notesUrl: 'https://drive.google.com/file/d/1YkRNSCITsYTajbLU9VS66zzA--oRDrlz/view?usp=drive_link', isDescriptive: true },
-    { name: 'Himanshi Tulsiani', rank: 15, img: '/himanshi_portrait_1779098692272.jpeg', notesUrl: 'https://drive.google.com/file/d/1XN91bhHP2XuZeOSsKTFX9uGjCNwgCy6P/view?usp=drive_link', isDescriptive: true },
-    { name: 'Saurabh Sharma', rank: 31, img: '/saurabh_portrait_1779098656404.jpeg', notesUrl: 'https://drive.google.com/file/d/1Uyn-Po2biy-ehlBHqakZB1PVdVAOlYaO/view?usp=drive_link', isDescriptive: true },
+    { name: 'Kumari Deeksha', rank: 2, img: '/deeksha_portrait_1779098675776.jpeg', notesUrl: 'https://drive.google.com/file/d/1YkRNSCITsYTajbLU9VS66zzA--oRDrlz/view?usp=drive_link', isDescriptive: true, badges: ['FM Desc: 39 (Highest)', 'Interview: 58 (2nd Highest)'] },
+    { name: 'Himanshi Tulsiani', rank: 15, img: '/himanshi_portrait_1779098692272.png', notesUrl: 'https://drive.google.com/file/d/1XN91bhHP2XuZeOSsKTFX9uGjCNwgCy6P/view?usp=drive_link', isDescriptive: true, badges: ['FM Obj: 44 (Top Score)'] },
+    { name: 'Saurabh Sharma', rank: 31, img: '/saurabh_portrait_1779098656404.jpeg', notesUrl: 'https://drive.google.com/file/d/1Uyn-Po2biy-ehlBHqakZB1PVdVAOlYaO/view?usp=drive_link', isDescriptive: true, badges: ['ESI Obj: 29.25 (2nd Highest)'] },
     { name: 'Hari Jagan', rank: 53, img: '/hari_jegan_portrait_1779098790015.jpeg', notesUrl: 'https://drive.google.com/drive/folders/14U19auYxO3eNdP222zaHKYudBOeW41R4?usp=drive_link' },
   ];
 
@@ -49,30 +63,37 @@ const Toppers = () => {
       <div className="absolute top-2 left-2 bg-blue-600 text-white font-black text-xs px-2 py-1 rounded shadow-md z-20 transform -rotate-2">
         AIR {topper.rank}
       </div>
-      <div className="h-[160px] w-full bg-white relative overflow-hidden border-b-2 border-white shrink-0">
-        <img src={topper.img} alt={topper.name} className="w-full h-full object-cover" />
-        {topper.highestPhase2 && (
-          <div className="absolute bottom-0 left-0 w-full bg-emerald-600/95 backdrop-blur-sm text-white text-[9px] font-extrabold py-1.5 text-center uppercase tracking-wider z-10 border-t border-emerald-500 shadow-[0_-2px_10px_rgba(0,0,0,0.1)]">
-            Highest in Phase 2
-          </div>
-        )}
-        {topper.firstAttempt && (
-          <div className="absolute bottom-0 left-0 w-full bg-amber-500/95 backdrop-blur-sm text-white text-[9px] font-extrabold py-1.5 text-center uppercase tracking-wider z-10 border-t border-amber-400 shadow-[0_-2px_10px_rgba(0,0,0,0.1)]">
-            First Attempt
-          </div>
+      <div className="h-[160px] w-full bg-white relative overflow-hidden border-b-2 border-white shrink-0 flex items-center justify-center bg-blue-50">
+        {topper.img ? (
+          <img src={topper.img} alt={topper.name} className="w-full h-full object-cover" />
+        ) : (
+          <span className="text-7xl font-black text-blue-200">{topper.name.charAt(0)}</span>
         )}
       </div>
-      <div className="p-2 pb-3 text-center flex flex-col justify-center flex-grow bg-gradient-to-b from-white to-[#fae6de]">
+      <div className="p-3 text-center flex flex-col justify-start flex-grow bg-gradient-to-b from-white to-[#fae6de]">
         <h3 className="font-bold text-gray-900 text-[14px] leading-tight mb-1">{topper.name}</h3>
-        <p className="text-[10px] text-gray-800 font-semibold leading-tight mt-0.5 px-1">{topper.program}</p>
-        <div className="mt-auto pt-2">
-          <button 
-            onClick={() => setSelectedReview(topper)}
-            className="text-blue-700 hover:text-blue-900 text-[11px] font-bold underline decoration-blue-400 underline-offset-2 transition-colors focus:outline-none inline-block w-fit mx-auto"
-          >
-            Read Feedback
-          </button>
-        </div>
+        <p className="text-[10px] text-gray-800 font-semibold leading-tight mb-2 px-1">{topper.program}</p>
+        
+        {topper.badges && topper.badges.length > 0 && (
+          <div className="flex flex-col gap-1.5 mb-3 items-center mt-1">
+            {topper.badges.map((badge, idx) => (
+              <span key={idx} className="bg-emerald-100 text-emerald-800 text-[9px] font-bold px-2 py-0.5 rounded-full border border-emerald-300 shadow-sm w-fit leading-tight">
+                {badge}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {topper.fullText && (
+          <div className="mt-auto pt-1">
+            <button 
+              onClick={() => setSelectedReview(topper)}
+              className="text-blue-700 hover:text-blue-900 text-[11px] font-bold underline decoration-blue-400 underline-offset-2 transition-colors focus:outline-none inline-block w-fit mx-auto"
+            >
+              Read Feedback
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -130,9 +151,26 @@ const Toppers = () => {
         {/* Content based on Active Tab */}
         {activeTab === 'performance' && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-            {/* Grid Section */}
-            <div className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-[1100px] mx-auto">
+            <h3 className="text-2xl font-bold text-center text-gray-800 mb-8 flex justify-center items-center gap-2">
+              <span className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-md text-sm">2025</span>
+              Recent Selections
+            </h3>
+            {/* Grid Section 2025 */}
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-[1100px] mx-auto mb-16">
               {toppersData.map((topper, idx) => (
+                <div key={idx} className="w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] md:w-auto md:max-w-[160px] md:min-w-[160px] flex items-stretch">
+                  <TopperCard topper={topper} />
+                </div>
+              ))}
+            </div>
+
+            <h3 className="text-2xl font-bold text-center text-gray-800 mb-8 flex justify-center items-center gap-2">
+              <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-md text-sm">2024</span>
+              Previous Year Stars
+            </h3>
+            {/* Grid Section 2024 */}
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-[1100px] mx-auto">
+              {toppersData2024.map((topper, idx) => (
                 <div key={idx} className="w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] md:w-auto md:max-w-[160px] md:min-w-[160px] flex items-stretch">
                   <TopperCard topper={topper} />
                 </div>
@@ -162,7 +200,14 @@ const Toppers = () => {
                     </div>
                   </div>
                   <div className="flex flex-col items-center sm:items-start w-full text-center sm:text-left mt-2 sm:mt-0">
-                    <h4 className="font-bold text-xl text-gray-900 mb-1">{topper.name}</h4>
+                    <div className="flex flex-col sm:flex-row items-center gap-2 mb-1 flex-wrap justify-center sm:justify-start">
+                      <h4 className="font-bold text-xl text-gray-900">{topper.name}</h4>
+                      {topper.badges && topper.badges.map((badge, idx) => (
+                        <span key={idx} className="bg-emerald-100 text-emerald-700 font-bold text-[10px] px-2 py-0.5 rounded-full border border-emerald-200">
+                          {badge}
+                        </span>
+                      ))}
+                    </div>
                     <p className="text-xs text-gray-500 font-medium mb-4">
                       {topper.isDescriptive ? 'Evaluated Descriptive Answers' : 'Detailed Strategy & Preparation Notes'}
                     </p>
