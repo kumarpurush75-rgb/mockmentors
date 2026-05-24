@@ -31,10 +31,18 @@ const Toppers = () => {
 
   const rajeshReview = `Whoever has been asking me personally about which coaching to rely on, I told them to practice quant and reasoning from youtube and to rely blindly on mockmentor for the rest of the things sir.`;
 
+  const vickyReview = `Thank You Sir. I am really grateful for your help and support. Your highlighted PIB, Newspaper, Budget really helped in Phase 2. And your guidance for interview helped me a lot in final interview.`;
+
+  const rahulReview = `Google Defines Mentor as "an experienced person who advises and helps somebody with less experience over a period of time".\n\nNow that I look back, Rahul Sir has been a true mentor for me. I came to know about his interview mentorship programme through a friend and I immediately wanted to enroll with him for his guidance. Unlike, any other individual or institute, he was not willing to accept anybody for the sake of it. He wanted to first assess whether he could really add value to the aspirant's preparation or not. And before this assessment, he even declined to accept fees.\n\nI have appeared for three RBI Grade B interviews earlier as well. But Rahul Sir was able to pinpoint my improvement area in our first call itself. This assessment significantly improved my approach for the interview. He helped me further by providing me a detailed personalised list of questions for every aspect of my profile. \n\nI enrolled on other programs as well, many of them were good and many not so good. But none of them provided as personalised guidance as Rahul Sir. He was always available and eager to take our doubts. He treated every aspirant as his friend. His patience and kind nature made him very approachable.\n\nThe mock interview questions were meticulously designed for each candidate's profile. His demeanor during the mock interview was apt for preparing us for the real interview. And his feedbacks were honest, to the point and supporting.\n\nI will be forever thankful to him for his support.`;
+
+  const utkarshReview = `Thank you so much Rahul sir for all your help during the interview process. :)\nFrom the first call that I had with you when my father was admitted in the hospital to the last call just before the interview date, you have been of extreme help. \nI remember calling you when I was probably at the weakest moment of my life. Your immediate motivation and guidance worked wonders.\nThank you sir.\nReally grateful.  :)`;
+
+  const vipulReview = `Thank you so much Rahul Sir for all the Efforts, Positivity and Belief🙏🏻❤️`;
+
   const toppersData = [
     { name: 'Kumari Deeksha', rank: 2, program: 'RBI course + Interview Program', img: '/deeksha_portrait_1779098675776.jpeg', fullText: deekshaReview, badges: ['FM Desc: 39 (Highest)', 'FM Overall: 81.75 (Highest)'] },
-    { name: 'Harshita Tiwari', rank: 7, program: 'MCQ pack', img: '/harshita_portrait.jpeg', fullText: harshitaReview },
-    { name: 'Ranjini', rank: 10, program: 'RBI course + Interview Program', img: '/ranjini_portrait_1779098721645.jpeg', fullText: defaultReview },
+    { name: 'Harshita Tiwari', rank: 7, program: 'MCQ pack', img: '/harshita_portrait.jpeg' },
+    { name: 'Ranjini', rank: 10, program: 'RBI course + Interview Program', img: '/ranjini_portrait_1779098721645.jpeg' },
     { name: 'Hari Vishal', rank: 11, program: 'RBI course + Interview Program', img: '/hari_vishal_portrait_1779098769758.jpeg', fullText: hariVishalReview, badges: ['Phase 2: 205.75 (Highest)', 'ESI Desc: 36 (Highest)', 'ESI Obj: 29.5 (Highest)'] },
     { name: 'Himanshi Tulsiani', rank: 15, program: 'RBI course + Interview Program', img: '/himanshi_portrait_1779098692272.png', fullText: himanshiReview, badges: ['FM Obj: 44 (Top Score)'] },
     { name: 'Saurabh Sharma', rank: 31, program: 'RBI course + Interview Program', img: '/saurabh_portrait_1779098656404.jpeg', fullText: saurabhReview, badges: ['ESI Obj: 29.25 (2nd Highest)'] },
@@ -45,14 +53,15 @@ const Toppers = () => {
     { name: 'Jay', rank: 70, program: 'Interview Program', img: '/jay_portrait_1779098621795.jpeg', fullText: jayReview },
     { name: 'Raghav Manglik', rank: 71, program: 'RBI course + Interview Program', img: '/raghav_portrait_1779098642377.jpeg', fullText: raghavReview },
     { name: 'Sajal Gupta', rank: 75, program: 'RBI course + Interview Program', img: '/sajal_portrait_1779098753254.jpeg' },
+    { name: "Aman Gupta", program: "Bharatiya Reserve Bank Note Mudran Private Limited", img: "/aman_gupta.jpg" }
   ];
 
   const toppersData2024 = [
-    { name: "Vicky Kumar", rank: 10, program: "RBI Interview Guidance Program", img: "/Vicky.jpeg" },
+    { name: "Vicky Kumar", rank: 10, program: "RBI Interview Guidance Program", img: "/Vicky.jpeg", fullText: vickyReview },
     { name: "Pooja", rank: 24, program: "RBI Interview Guidance Program", img: "/Pooja.jpeg" },
-    { name: "Rahul Mohanani", rank: 26, program: "RBI Interview Guidance Program", img: "/Rahul.jpeg" },
-    { name: "Utkarsh Sachan", rank: 35, program: "RBI Interview Guidance Program", img: "/Utkarsh.jpeg" },
-    { name: "Vipul", rank: 44, program: "RBI Interview Guidance Program" }
+    { name: "Rahul Mohanani", rank: 26, program: "RBI Interview Guidance Program", img: "/Rahul.jpeg", fullText: rahulReview },
+    { name: "Utkarsh Sachan", rank: 35, program: "RBI Interview Guidance Program", img: "/Utkarsh.jpeg", fullText: utkarshReview },
+    { name: "Vipul", rank: 44, program: "RBI Interview Guidance Program", fullText: vipulReview }
   ];
 
   const strategyData = [
@@ -64,9 +73,11 @@ const Toppers = () => {
 
   const TopperCard = ({ topper }) => (
     <div className="flex flex-col bg-[#ffeadd] rounded-xl overflow-hidden border-2 border-[#1c4897] shadow-lg w-full max-w-[160px] mx-auto transform hover:scale-105 transition-transform duration-300 relative group h-full">
-      <div className="absolute top-2 left-2 bg-blue-600 text-white font-black text-xs px-2 py-1 rounded shadow-md z-20 transform -rotate-2">
-        AIR {topper.rank}
-      </div>
+      {topper.rank && (
+        <div className="absolute top-2 left-2 bg-blue-600 text-white font-black text-xs px-2 py-1 rounded shadow-md z-20 transform -rotate-2">
+          AIR {topper.rank}
+        </div>
+      )}
       <div className="h-[160px] w-full bg-white relative overflow-hidden border-b-2 border-white shrink-0 flex items-center justify-center bg-blue-50">
         {topper.img ? (
           <img src={topper.img} alt={topper.name} className="w-full h-full object-cover" />

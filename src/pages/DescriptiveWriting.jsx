@@ -159,7 +159,7 @@ const DescriptiveWriting = () => {
                   </div>
                 </div>
                 <div className="flex justify-center mt-8 pt-6 border-t border-slate-100">
-                  <a href="#" className="flex items-center gap-2 bg-[#488890] hover:bg-[#3a6d73] text-white px-8 py-4 rounded-xl font-bold shadow-lg transition-colors">
+                  <a href="https://www.mockmentor.in/learn/home/RBI-Grade-B-2026-Super-elite/Descriptive/section/713871/lesson/4546560" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-[#488890] hover:bg-[#3a6d73] text-white px-8 py-4 rounded-xl font-bold shadow-lg transition-colors">
                     Take a Free Trial Attempt
                   </a>
                 </div>

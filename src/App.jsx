@@ -16,27 +16,34 @@ import Refund from './pages/Refund';
 
 function App() {
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
+    let scrollTimeout;
+
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // If we scroll down, hide the button. If we scroll up, show it.
-      if (currentScrollY <= 50) {
-        setIsVisible(true);
-      } else if (currentScrollY > lastScrollY) {
-        setIsVisible(false); // scrolling down
-      } else {
-        setIsVisible(true); // scrolling up
+      // Hide the WhatsApp button immediately when active scrolling starts/continues
+      setIsVisible(false);
+
+      // Clear the timeout to prevent it from showing while still scrolling
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
       }
-      
-      setLastScrollY(currentScrollY);
+
+      // Set a timeout to show the button again after scrolling has stopped for 250ms
+      scrollTimeout = setTimeout(() => {
+        setIsVisible(true);
+      }, 250);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+    };
+  }, []);
 
   return (
     <Router>

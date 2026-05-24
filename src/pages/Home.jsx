@@ -204,8 +204,6 @@ The Demo Course serves as the perfect starting point for aspirants who want to e
       name: "Harshita Tiwari",
       rank: "Selected as RBI Grade B - Rank 7",
       prog: "(MCQ pack)",
-      text: "I would like to sincerely thank MockMentor for their excellent MCQ course and highly curated highlighted Telegram content. The MCQs on current affairs, RBI & SEBI circulars, schemes, and reports, helped me strengthen my concepts and improve revision consistently. (Shared on YouTube on her own channel)",
-      fullText: `I would like to sincerely thank MockMentor for their excellent MCQ course and highly curated highlighted Telegram content. The MCQs on current affairs, RBI & SEBI circulars, schemes, and reports, helped me strengthen my concepts and improve revision consistently. The highlighted content shared regularly on Telegram was extremely relevant and exam-oriented, which made preparation more focused and efficient.\n\n(Shared on YouTube on her own channel)`,
       img: "/harshita_portrait.jpeg"
     },
     {
@@ -295,6 +293,11 @@ The Demo Course serves as the perfect starting point for aspirants who want to e
       rank: "Selected as RBI Grade B - Rank 75",
       prog: "(RBI course + Interview Program)",
       img: "/sajal_portrait_1779098753254.jpeg"
+    },
+    {
+      name: "Aman Gupta",
+      prog: "(Bharatiya Reserve Bank Note Mudran Private Limited)",
+      img: "/aman_gupta.jpg"
     }
   ];
 
@@ -303,7 +306,9 @@ The Demo Course serves as the perfect starting point for aspirants who want to e
       name: "Vicky Kumar",
       rank: "Selected as RBI Grade B - Rank 10",
       prog: "(RBI Interview Guidance Program)",
-      img: "/Vicky.jpeg"
+      img: "/Vicky.jpeg",
+      text: "Thank You Sir. I am really grateful for your help and support. Your highlighted PIB, Newspaper, Budget really helped in Phase 2. And your guidance for interview...",
+      fullText: `Thank You Sir. I am really grateful for your help and support. Your highlighted PIB, Newspaper, Budget really helped in Phase 2. And your guidance for interview helped me a lot in final interview.`
     },
     {
       name: "Pooja",
@@ -315,18 +320,24 @@ The Demo Course serves as the perfect starting point for aspirants who want to e
       name: "Rahul Mohanani",
       rank: "Selected as RBI Grade B - Rank 26",
       prog: "(RBI Interview Guidance Program)",
-      img: "/Rahul.jpeg"
+      img: "/Rahul.jpeg",
+      text: `Google Defines Mentor as "an experienced person who advises and helps somebody with less experience over a period of time"...`,
+      fullText: `Google Defines Mentor as "an experienced person who advises and helps somebody with less experience over a period of time".\n\nNow that I look back, Rahul Sir has been a true mentor for me. I came to know about his interview mentorship programme through a friend and I immediately wanted to enroll with him for his guidance. Unlike, any other individual or institute, he was not willing to accept anybody for the sake of it. He wanted to first assess whether he could really add value to the aspirant's preparation or not. And before this assessment, he even declined to accept fees.\n\nI have appeared for three RBI Grade B interviews earlier as well. But Rahul Sir was able to pinpoint my improvement area in our first call itself. This assessment significantly improved my approach for the interview. He helped me further by providing me a detailed personalised list of questions for every aspect of my profile. \n\nI enrolled on other programs as well, many of them were good and many not so good. But none of them provided as personalised guidance as Rahul Sir. He was always available and eager to take our doubts. He treated every aspirant as his friend. His patience and kind nature made him very approachable.\n\nThe mock interview questions were meticulously designed for each candidate's profile. His demeanor during the mock interview was apt for preparing us for the real interview. And his feedbacks were honest, to the point and supporting.\n\nI will be forever thankful to him for his support.`
     },
     {
       name: "Utkarsh Sachan",
       rank: "Selected as RBI Grade B - Rank 35",
       prog: "(RBI Interview Guidance Program)",
-      img: "/Utkarsh.jpeg"
+      img: "/Utkarsh.jpeg",
+      text: `Thank you so much Rahul sir for all your help during the interview process. :) From the first call that I had with you when my father was admitted in the hospital...`,
+      fullText: `Thank you so much Rahul sir for all your help during the interview process. :)\nFrom the first call that I had with you when my father was admitted in the hospital to the last call just before the interview date, you have been of extreme help. \nI remember calling you when I was probably at the weakest moment of my life. Your immediate motivation and guidance worked wonders.\nThank you sir.\nReally grateful.  :)`
     },
     {
       name: "Vipul",
       rank: "Selected as RBI Grade B - Rank 44",
-      prog: "(RBI Interview Guidance Program)"
+      prog: "(RBI Interview Guidance Program)",
+      text: `Thank you so much Rahul Sir for all the Efforts, Positivity and Belief🙏🏻❤️`,
+      fullText: `Thank you so much Rahul Sir for all the Efforts, Positivity and Belief🙏🏻❤️`
     }
   ];
 
@@ -498,33 +509,33 @@ The Demo Course serves as the perfect starting point for aspirants who want to e
         </div>
       </section>
 
-      {/* 3. YOUTUBE SECTION */}
+      {/* 3. TELEGRAM SECTION */}
       <section className="py-16 bg-[#f8fbff] px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-10 text-[#4285F4]">
-            Cover RBI Circulars <span className="text-[#EA4335]">from YouTube</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="rounded-xl overflow-hidden shadow-lg border border-gray-200 bg-black aspect-video relative">
-              <iframe 
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/djDwxTe-YjI" 
-                title="Mock Mentor Video 1" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowFullScreen
-              ></iframe>
+        <div className="max-w-4xl mx-auto">
+          
+          <div className="bg-white border-2 border-blue-200 shadow-md rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
+            <div className="flex items-center gap-6 text-center md:text-left flex-col md:flex-row">
+              <div className="w-16 h-16 bg-[#0088cc]/10 text-[#0088cc] rounded-full flex items-center justify-center shrink-0">
+                <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.664 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                </svg>
+              </div>
+              <div>
+                <p className="text-gray-800 font-semibold text-base md:text-lg">Here in the channel, we share daily highlighted material directly from the original sources.</p>
+              </div>
             </div>
-            <div className="rounded-xl overflow-hidden shadow-lg border border-gray-200 bg-black aspect-video relative">
-              <iframe 
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/uLV3sBEvcVU" 
-                title="Mock Mentor Video 2" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowFullScreen
-              ></iframe>
-            </div>
+            <a href="https://t.me/Mockmentor" target="_blank" rel="noopener noreferrer" className="shrink-0 bg-[#0088cc] hover:bg-[#0077b3] text-white px-8 py-3.5 rounded-xl font-bold text-base transition-colors shadow-sm inline-flex items-center gap-2 w-full md:w-auto justify-center">
+              Join Our Telegram Channel
+            </a>
+          </div>
+
+          <div className="rounded-2xl shadow-lg border border-slate-200 bg-white p-2 md:p-4">
+            <img 
+              src="/a.png" 
+              alt="Mock Mentor Trusted Sources" 
+              className="w-full h-auto object-contain rounded-xl"
+              style={{ imageRendering: 'crisp-edges', WebkitFontSmoothing: 'antialiased' }}
+            />
           </div>
         </div>
       </section>
@@ -674,7 +685,7 @@ The Demo Course serves as the perfect starting point for aspirants who want to e
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-6 justify-center mb-16">
             {officers.map((officer, idx) => {
-              const rankMatch = officer.rank.match(/Rank\s+(\d+)/i);
+              const rankMatch = officer.rank ? officer.rank.match(/Rank\s+(\d+)/i) : null;
               const rankNum = rankMatch ? rankMatch[1] : null;
               
               return (
@@ -728,7 +739,7 @@ The Demo Course serves as the perfect starting point for aspirants who want to e
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-6 justify-center">
             {officers2024.map((officer, idx) => {
-              const rankMatch = officer.rank.match(/Rank\s+(\d+)/i);
+              const rankMatch = officer.rank ? officer.rank.match(/Rank\s+(\d+)/i) : null;
               const rankNum = rankMatch ? rankMatch[1] : null;
               
               return (
@@ -750,6 +761,16 @@ The Demo Course serves as the perfect starting point for aspirants who want to e
                     <p className="text-[10px] text-gray-800 font-semibold leading-tight mb-2 px-1">
                       {officer.prog.replace(/^\(|\)$/g, '')}
                     </p>
+                    {(officer.text || officer.fullText) && (
+                      <div className="mt-auto pt-1">
+                        <button 
+                          onClick={() => setSelectedFeedback(officer)}
+                          className="text-blue-700 hover:text-blue-900 text-[11px] font-bold underline decoration-blue-400 underline-offset-2 transition-colors focus:outline-none inline-block w-fit mx-auto"
+                        >
+                          Read Feedback
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
               );
@@ -786,26 +807,7 @@ The Demo Course serves as the perfect starting point for aspirants who want to e
               One stop solution for Regulatory, banking and insurance exams.
             </li>
           </ul>
-          <a href="https://t.me/Mockmentor" target="_blank" rel="noopener noreferrer" className="bg-[#0088cc] hover:bg-[#0077b3] text-white px-8 py-3 rounded-md font-bold transition-colors inline-flex items-center gap-2 shadow-md">
-            JOIN US ON TELEGRAM
-          </a>
-        </div>
-      </section>
 
-      {/* 6B. OUR TRUSTED SOURCES */}
-      <section className="py-20 px-4 bg-slate-50 border-t border-slate-200">
-        <div className="max-w-4xl mx-auto text-center mb-10">
-          <h2 className="text-3xl font-bold text-[#2d3748] mb-4">Preparation You Can Rely On</h2>
-          <p className="text-slate-600 text-lg">We follow credible and authentic sources to bring you every relevant update.</p>
-        </div>
-        <div className="max-w-4xl mx-auto">
-          <div className="rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] border-4 border-white transform transition-transform hover:scale-[1.01] duration-500 bg-white">
-            <img 
-              src="/Mockmentor sources.jpeg" 
-              alt="Mock Mentor Trusted Sources - PIB, RSTV, Live Mint, Business Standard" 
-              className="w-full h-auto object-contain"
-            />
-          </div>
         </div>
       </section>
 

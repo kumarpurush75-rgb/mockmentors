@@ -42,6 +42,16 @@ const Contact = () => {
               <a href="tel:+919431986819" className="text-blue-600 hover:text-blue-800 font-medium transition-colors">+91 94319 86819</a>
             </div>
           </div>
+
+          <div className="flex items-start gap-4 p-6 bg-slate-50 rounded-xl border border-slate-100 hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 bg-[#25D366]/20 text-[#25D366] rounded-full flex items-center justify-center shrink-0">
+              <MessageCircle className="w-6 h-6" />
+            </div>
+            <div>
+              <h3 className="font-bold text-slate-900 text-lg mb-1">WhatsApp</h3>
+              <a href="https://wa.me/919431986819" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium transition-colors">+91 94319 86819</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
