@@ -64,7 +64,6 @@ const courses = [
     reviews: "840",
     features: ["Line-by-line Evaluation", "Model Answers", "Live Strategy Sessions"],
     tag: "Best Seller",
-    path: "/courses/descriptive-writing",
     url: "https://mockmentor.learnyst.com/learn/Descriptive-writing",
     fullDesc: descriptiveDesc
   },
