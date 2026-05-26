@@ -183,7 +183,7 @@ The Demo Course serves as the perfect starting point for aspirants who want to e
       oldPrice: "2,500",
       discount: "20% OFF",
       img: "/fortnight.jpeg",
-      url: "https://courses.mockmentor.in/learn/Fortnight-MCQs",
+      url: "https://courses.mockm.entor.in/learn/Fortnight-MCQs",
       fullDesc: fortnightDesc
     },
   ];
@@ -598,7 +598,7 @@ The Demo Course serves as the perfect starting point for aspirants who want to e
                   <button onClick={() => setSelectedCourseDetails({ title: 'Demo Course', fullDesc: demoDesc })} className="flex-1 border-2 border-gray-200 text-gray-700 hover:border-gray-300 hover:bg-gray-50 font-bold py-2 rounded-md transition-colors text-sm text-center">
                     View Details
                   </button>
-                  <a href="https://courses.mockmentor.in/learn/home/Demo-Course" target="_blank" rel="noopener noreferrer" className="flex-1 bg-[#488890] hover:bg-[#3a6d73] text-white font-bold py-2 rounded-md transition-colors text-sm text-center shadow-sm">
+                  <a href="https://courses.mockmentor.in/learn/Demo-Course" target="_blank" rel="noopener noreferrer" className="flex-1 bg-[#488890] hover:bg-[#3a6d73] text-white font-bold py-2 rounded-md transition-colors text-sm text-center shadow-sm">
                     Enroll Free
                   </a>
                 </div>
@@ -633,7 +633,7 @@ The Demo Course serves as the perfect starting point for aspirants who want to e
                 <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent pointer-events-none"></div>
               </div>
               <div className="mt-6 flex justify-center">
-                <a href="https://www.mockmentor.in/learn/RBI-Grade-B-2026-Full-Package" target="_blank" rel="noopener noreferrer" className="relative overflow-hidden w-full max-w-sm rounded-xl p-[1px] group shadow-md hover:shadow-lg transition-shadow">
+                <a href="https://courses.mockmentor.in/learn/RBI-Grade-B-2026-Full-Package" target="_blank" rel="noopener noreferrer" className="relative overflow-hidden w-full max-w-sm rounded-xl p-[1px] group shadow-md hover:shadow-lg transition-shadow">
                   <span className="absolute inset-0 bg-gradient-to-r from-blue-400 via-blue-600 to-indigo-600 opacity-70 group-hover:opacity-100 transition-opacity duration-300"></span>
                   <div className="relative bg-white group-hover:bg-transparent transition-colors duration-300 rounded-xl px-8 py-4 flex items-center justify-center gap-2">
                     <span className="font-extrabold text-blue-900 group-hover:text-white transition-colors duration-300 text-lg">ENROLL NOW - ELITE</span>
@@ -657,7 +657,7 @@ The Demo Course serves as the perfect starting point for aspirants who want to e
                 <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent pointer-events-none"></div>
               </div>
               <div className="mt-6 flex justify-center">
-                <a href="https://www.mockmentor.in/learn/RBI-Grade-B-2026-Super-elite" target="_blank" rel="noopener noreferrer" className="relative overflow-hidden w-full max-w-sm rounded-xl p-[1px] group shadow-md hover:shadow-lg transition-shadow">
+                <a href="https://courses.mockmentor.in/learn/RBI-Grade-B-2026-Super-elite" target="_blank" rel="noopener noreferrer" className="relative overflow-hidden w-full max-w-sm rounded-xl p-[1px] group shadow-md hover:shadow-lg transition-shadow">
                   <span className="absolute inset-0 bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-500 opacity-100 transition-opacity duration-300"></span>
                   <div className="relative bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-400 hover:to-amber-500 transition-colors duration-300 rounded-xl px-8 py-4 flex items-center justify-center gap-2 shadow-inner border border-yellow-400/50">
                     <span className="font-extrabold text-white text-lg drop-shadow-sm">ENROLL NOW - SUPER ELITE</span>
