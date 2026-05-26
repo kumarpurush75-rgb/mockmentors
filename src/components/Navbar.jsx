@@ -147,7 +147,7 @@ const Navbar = () => {
           </div>
           <div className="grid grid-cols-2 gap-2">
             <a 
-              href="https://www.mockmentor.in/learn/account/signin" 
+              href="https://courses.mockmentor.in/learn/account/signin" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-blue-600 border border-blue-600 py-2 rounded-md text-sm font-medium text-center block"
