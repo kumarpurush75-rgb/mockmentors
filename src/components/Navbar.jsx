@@ -28,7 +28,7 @@ const Navbar = () => {
             </Link>
 
             <a 
-              href="https://www.mockmentor.in/learn/account/signin" 
+              href="https://courses.mockmentor.in/learn/account/signin" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-blue-600 border border-blue-600 px-4 py-1.5 rounded-md text-sm font-medium hover:bg-blue-50 transition-colors inline-block text-center"
@@ -37,7 +37,7 @@ const Navbar = () => {
             </a>
             
             <a 
-              href="https://www.mockmentor.in/learn/account/signup" 
+              href="https://courses.mockmentor.in/learn/account/signup" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="bg-[#488890] text-white px-4 py-1.5 rounded-md text-sm font-medium hover:bg-[#3a6d73] transition-colors shadow-sm inline-block text-center"
