@@ -163,7 +163,7 @@ The Demo Course serves as the perfect starting point for aspirants who want to e
       oldPrice: "5,000",
       discount: "30% OFF",
       img: "/elite.jpeg",
-      url: "https://www.mockmentor.in/learn/RBI-Grade-B-2026-Full-Package",
+      url: "https://courses.mockmentor.in/learn/home/RBI-Grade-B-2026-Full-Package",
       fullDesc: eliteDesc
     },
     {
@@ -173,7 +173,7 @@ The Demo Course serves as the perfect starting point for aspirants who want to e
       oldPrice: "6,000",
       discount: "17% OFF",
       img: "/descriptive.jpeg",
-      url: "https://www.mockmentor.in/learn/Descriptive-writing",
+      url: "https://courses.mockmentor.in/learn/Descriptive-writing",
       fullDesc: descriptiveDesc
     },
     {
@@ -183,7 +183,7 @@ The Demo Course serves as the perfect starting point for aspirants who want to e
       oldPrice: "2,500",
       discount: "20% OFF",
       img: "/fortnight.jpeg",
-      url: "https://www.mockmentor.in/learn/Fortnight-MCQs",
+      url: "https://courses.mockmentor.in/learn/Fortnight-MCQs",
       fullDesc: fortnightDesc
     },
   ];
