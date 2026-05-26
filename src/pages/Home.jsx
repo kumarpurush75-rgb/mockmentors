@@ -153,7 +153,7 @@ The Demo Course serves as the perfect starting point for aspirants who want to e
       oldPrice: "10,000",
       discount: "25% OFF",
       img: "/super%20elite.png",
-      url: "https://www.mockmentor.in/learn/RBI-Grade-B-2026-Super-elite",
+      url: "https://courses.mockmentor.in/learn/home/RBI-Grade-B-2026-Super-elite",
       fullDesc: superEliteDesc
     },
     {
