@@ -62,7 +62,7 @@ const Navbar = () => {
           {/* Mobile Actions & Hamburger */}
           <div className="lg:hidden flex items-center gap-3">
             <a 
-              href="https://www.mockmentor.in/learn/account/signin" 
+              href="https://courses.mockmentor.in/learn/account/signin" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-blue-600 border border-blue-600 px-3 py-1.5 rounded-md text-xs font-semibold hover:bg-blue-50 transition-colors"
@@ -123,7 +123,7 @@ const Navbar = () => {
           YouTube
         </a>
         <a 
-          href="https://www.mockmentor.in/learn/account/signup" 
+          href="https://courses.mockmentor.in/learn/account/signup" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="inline-flex items-center bg-[#eef7f8] border border-[#a2cfd5] text-[#2c5b61] px-3 py-1.5 rounded-full text-xs font-semibold hover:bg-[#ddf0f2] active:bg-[#c9e7ea] transition-colors shrink-0"
