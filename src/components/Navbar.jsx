@@ -91,7 +91,7 @@ const Navbar = () => {
           Descriptive Answers & Notes
         </Link>
         <a 
-          href="https://www.mockmentor.in/learn" 
+          href="https://courses.mockmentor.in/learn" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="inline-flex items-center bg-blue-50 border border-blue-200 text-blue-700 px-3 py-1.5 rounded-full text-xs font-semibold hover:bg-blue-100 active:bg-blue-200 transition-colors shrink-0"
@@ -155,7 +155,7 @@ const Navbar = () => {
               SIGN IN
             </a>
             <a 
-              href="https://www.mockmentor.in/learn/account/signup" 
+              href="https://courses.mockmentor.in/learn/account/signup" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="bg-[#488890] text-white py-2 rounded-md text-sm font-medium shadow-sm hover:bg-[#3a6d73] text-center block"
