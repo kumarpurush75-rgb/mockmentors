@@ -395,7 +395,7 @@ The Demo Course serves as the perfect starting point for aspirants who want to e
           A Mock Test platform trusted by toppers for its transparency, authenticity, and integrity.
         </p>
         <a 
-          href="https://www.mockmentor.in/learn" 
+          href="https://courses.mockmentor.in/learn" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="inline-block bg-[#4d868e] text-white px-8 py-3 rounded text-lg font-bold hover:bg-[#3d6f76] transition-colors shadow-md"
@@ -598,7 +598,7 @@ The Demo Course serves as the perfect starting point for aspirants who want to e
                   <button onClick={() => setSelectedCourseDetails({ title: 'Demo Course', fullDesc: demoDesc })} className="flex-1 border-2 border-gray-200 text-gray-700 hover:border-gray-300 hover:bg-gray-50 font-bold py-2 rounded-md transition-colors text-sm text-center">
                     View Details
                   </button>
-                  <a href="https://www.mockmentor.in/learn/Demo-Course" target="_blank" rel="noopener noreferrer" className="flex-1 bg-[#488890] hover:bg-[#3a6d73] text-white font-bold py-2 rounded-md transition-colors text-sm text-center shadow-sm">
+                  <a href="https://courses.mockmentor.in/learn/home/Demo-Course" target="_blank" rel="noopener noreferrer" className="flex-1 bg-[#488890] hover:bg-[#3a6d73] text-white font-bold py-2 rounded-md transition-colors text-sm text-center shadow-sm">
                     Enroll Free
                   </a>
                 </div>
