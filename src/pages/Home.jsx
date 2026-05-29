@@ -183,7 +183,7 @@ The Demo Course serves as the perfect starting point for aspirants who want to e
       oldPrice: "2,500",
       discount: "20% OFF",
       img: "/fortnight.jpeg",
-      url: "https://courses.mockm.entor.in/learn/Fortnight-MCQs",
+      url: "https://courses.mockmentor.in/learn/Fortnight-MCQs",
       fullDesc: fortnightDesc
     },
   ];
