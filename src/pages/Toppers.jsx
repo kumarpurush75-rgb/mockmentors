@@ -29,7 +29,9 @@ const Toppers = () => {
 
   const harshitaReview = `I would like to sincerely thank MockMentor for their excellent MCQ course and highly curated highlighted Telegram content. The MCQs on current affairs, RBI & SEBI circulars, schemes, and reports, helped me strengthen my concepts and improve revision consistently. The highlighted content shared regularly on Telegram was extremely relevant and exam-oriented, which made preparation more focused and efficient.\n\n(Shared on YouTube on her own channel)`;
 
-  const rajeshReview = `Whoever has been asking me personally about which coaching to rely on, I told them to practice quant and reasoning from youtube and to rely blindly on mockmentor for the rest of the things sir.`;
+  const rajeshReview = `I relied on MockMentor GA course and AffairsCloud for Phase 1 preparation. For Phase 2, I relied completely on MockMentor, especially for descriptive preparation. Their strict 48-hour correction window for evaluating written answers was very helpful, and the feedback they provided significantly improved my answer-writing skills.
+I also subscribed to their interview guidance program, and the mock interviews definitely helped me overcome my weaknesses and gain confidence while speaking.
+I am highly grateful to Rahul Sir and the entire support team for guiding me throughout the journey, from Phase 1 till the interview stage.`;
 
   const vickyReview = `Thank You Sir. I am really grateful for your help and support. Your highlighted PIB, Newspaper, Budget really helped in Phase 2. And your guidance for interview helped me a lot in final interview.`;
 
@@ -39,6 +41,12 @@ const Toppers = () => {
 
   const vipulReview = `Thank you so much Rahul Sir for all the Efforts, Positivity and Belief🙏🏻❤️`;
 
+  const amanReview = `MockMentor is not just a platform for RBI Grade B and other regulatory body examinations; rather, I would say it is one of the best sources for General Awareness preparation for any competitive exam.
+I have been associated with this channel for more than 2 years, and during this period, I appeared for multiple examinations. Every time, I found that the conceptual clarity provided by Rahul Sir in General Awareness always gave me an edge over others.
+By God’s grace, I recently qualified the BRBNMPL Deputy Manager examination, where General Awareness was one of the subjects, and for that, I solely relied on the content and guidance provided on this channel.
+One thing which truly makes MockMentor different is that Rahul Sir is always available for his students whenever they need guidance during any phase of the examination process. His dedication towards students and consistent support are truly commendable.
+Thank you so much, Rahul Sir, for your constant support, guidance, and quality content. Wishing MockMentor even greater success ahead.`;
+  
   const toppersData = [
     { name: 'Kumari Deeksha', rank: 2, program: 'RBI course + Interview Program', img: '/deeksha_portrait_1779098675776.jpeg', fullText: deekshaReview, badges: ['FM Desc: 39 (Highest)', 'FM Overall: 81.75 (Highest)'] },
     { name: 'Harshita Tiwari', rank: 7, program: 'MCQ pack', img: '/harshita_portrait.jpeg' },
@@ -53,7 +61,7 @@ const Toppers = () => {
     { name: 'Jay', rank: 70, program: 'Interview Program', img: '/jay_portrait_1779098621795.jpeg', fullText: jayReview },
     { name: 'Raghav Manglik', rank: 71, program: 'RBI course + Interview Program', img: '/raghav_portrait_1779098642377.jpeg', fullText: raghavReview },
     { name: 'Sajal Gupta', rank: 75, program: 'RBI course + Interview Program', img: '/sajal_portrait_1779098753254.jpeg' },
-    { name: "Aman Gupta", program: "Bharatiya Reserve Bank Note Mudran Private Limited", img: "/aman_gupta.jpg" }
+    { name: "Aman Gupta", program: "Bharatiya Reserve Bank Note Mudran Private Limited", img: "/aman_gupta.jpg", fullText: amanReview }
   ];
 
   const toppersData2024 = [
