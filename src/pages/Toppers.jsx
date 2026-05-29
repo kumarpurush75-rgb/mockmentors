@@ -61,7 +61,7 @@ const Toppers = () => {
     { name: "Pooja", rank: 24, program: "RBI Interview Guidance Program", img: "/Pooja.jpeg" },
     { name: "Rahul Mohanani", rank: 26, program: "RBI Interview Guidance Program", img: "/Rahul.jpeg", fullText: rahulReview },
     { name: "Utkarsh Sachan", rank: 35, program: "RBI Interview Guidance Program", img: "/Utkarsh.jpeg", fullText: utkarshReview },
-    { name: "Vipul", rank: 44, program: "RBI Interview Guidance Program", fullText: vipulReview }
+    { name: "Vipul", rank: 44, program: "RBI Interview Guidance Program",img: "/vipul.png", fullText: vipulReview }
   ];
 
   const strategyData = [
